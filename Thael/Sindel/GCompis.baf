@@ -1,0 +1,15 @@
+IF
+	AttackedBy([ANYONE],DEFAULT)
+        Global("CompiAtacado","LOCALS",0)
+THEN
+	RESPONSE #100
+		Enemy()
+                ActionOverride("Sindel",Enemy()) 
+		ActionOverride("Buch",Enemy()) 
+		ActionOverride("Buss",Enemy()) 
+		ActionOverride("Buba",Enemy())
+                SetGlobal("CompiAtacado","LOCALS",1)
+
+END
+
+

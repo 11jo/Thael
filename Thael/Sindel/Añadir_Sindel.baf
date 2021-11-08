@@ -1,0 +1,12 @@
+IF
+   Global("SindelExiste","AR0314",0)
+THEN
+   RESPONSE #100
+   SetGlobal("SindelExiste","AR0314",1)
+   CreateCreature("Sindel",[700.300],3)
+   
+   CreateCreature("GBuch",[607.254],9)
+   CreateCreature("GBuss",[797.286],2)
+   CreateCreature("GBuba",[687.221],2)
+END
+

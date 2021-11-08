@@ -1,0 +1,205 @@
+IF
+	AttackedBy([ANYONE],DEFAULT)
+        Global("SindelAtacada","LOCALS",0)
+THEN
+	RESPONSE #100
+		Enemy()
+		ActionOverride("Buch",Enemy()) 
+		ActionOverride("Buss",Enemy()) 
+		ActionOverride("Buba",Enemy())
+                SetGlobal("SindelAtacada","LOCALS",1)
+
+END
+
+//*******************************************************
+
+IF
+	See(NearestEnemyOf(Myself))
+	Global("FighterAbility","LOCALS",0)
+THEN
+	RESPONSE #100
+		ForceSpell(Myself,WARRIOR_WAR_CRY)
+                SetGlobalTimer("FightTimer","LOCALS",6)
+		SetGlobal("FighterAbility","LOCALS",1)
+
+END
+
+//**********************************************************
+
+IF
+	See(NearestEnemyOf(Myself))
+	Global("FighterAbility","LOCALS",1)
+	!GlobalTimerNotExpired("FightTimer","LOCALS")
+THEN
+	RESPONSE #100
+		SetGlobalTimer("FightTimer","LOCALS",18)
+		ForceSpell(Myself,WARRIOR_GREATER_DEATHBLOW)
+		SetGlobal("FighterAbility","LOCALS",2)
+                Attack(NearestEnemyOf(Myself))
+END
+
+//**********************************************************
+
+IF
+	See(NearestEnemyOf(Myself))
+	Global("FighterAbility","LOCALS",2)
+        !GlobalTimerNotExpired("FightTimer","LOCALS")
+THEN
+	RESPONSE #100
+		SetGlobalTimer("FightTimer","LOCALS",18)
+		ForceSpell(Myself,WARRIOR_SMITE)
+		SetGlobal("FighterAbility","LOCALS",3)
+                Attack(NearestEnemyOf(Myself))
+END
+
+//**********************************************************
+
+IF
+	See(NearestEnemyOf(Myself))
+	Global("FighterAbility","LOCALS",3)
+        !GlobalTimerNotExpired("FightTimer","LOCALS")
+THEN	
+	RESPONSE #100
+		SetGlobalTimer("FightTimer","LOCALS",18)
+		ForceSpell(Myself,WARRIOR_CRITICAL_STRIKE)
+		SetGlobal("FighterAbility","LOCALS",4)
+                Attack(NearestEnemyOf(Myself))
+END	
+
+//**********************************************************
+IF
+	See(NearestEnemyOf(Myself))
+	Global("FighterAbility","LOCALS",4)
+        !GlobalTimerNotExpired("FightTimer","LOCALS")
+THEN
+	RESPONSE #100
+		ForceSpell(Myself,WARRIOR_GREATER_WHIRLWIND)
+		SetGlobalTimer("FightTimer","LOCALS",18)
+		SetGlobal("FighterAbility","LOCALS",5)
+                Attack(NearestEnemyOf(Myself))
+END
+
+
+//**********************************************************
+
+IF
+	See(NearestEnemyOf(Myself))
+	Global("FighterAbility","LOCALS",5)
+        !GlobalTimerNotExpired("FightTimer","LOCALS")
+THEN	
+	RESPONSE #100
+		SetGlobalTimer("FightTimer","LOCALS",18)
+		ForceSpell(Myself,WARRIOR_CRITICAL_STRIKE)
+		SetGlobal("FighterAbility","LOCALS",6)
+                Attack(NearestEnemyOf(Myself))
+END	
+
+//**********************************************************
+
+IF
+	See(NearestEnemyOf(Myself))
+	Global("FighterAbility","LOCALS",6)
+        !GlobalTimerNotExpired("FightTimer","LOCALS")
+THEN
+	RESPONSE #100
+		SetGlobalTimer("FightTimer","LOCALS",18)
+		ForceSpell(Myself,WARRIOR_GREATER_WHIRLWIND)
+		SetGlobal("FighterAbility","LOCALS",7)
+                Attack(NearestEnemyOf(Myself))
+END
+
+
+//**********************************************************
+
+IF
+	See(NearestEnemyOf(Myself))
+	Global("FighterAbility","LOCALS",7)
+        !GlobalTimerNotExpired("FightTimer","LOCALS")
+THEN
+	RESPONSE #100
+		SetGlobalTimer("FightTimer","LOCALS",18)
+		ForceSpell(Myself,WARRIOR_POWER_ATTACK)
+		SetGlobal("FighterAbility","LOCALS",8)
+                Attack(NearestEnemyOf(Myself))
+END
+
+//**********************************************************
+
+IF
+	See(NearestEnemyOf(Myself))
+	Global("FighterAbility","LOCALS",8)
+        !GlobalTimerNotExpired("FightTimer","LOCALS")
+THEN
+	RESPONSE #100
+		SetGlobalTimer("FightTimer","LOCALS",18)
+		ForceSpell(Myself,WARRIOR_POWER_ATTACK)
+		SetGlobal("FighterAbility","LOCALS",9)
+                Attack(NearestEnemyOf(Myself))
+END
+
+//**********************************************************
+
+IF
+	See(NearestEnemyOf(Myself))
+	Global("FighterAbility","LOCALS",9)
+        !GlobalTimerNotExpired("FightTimer","LOCALS")
+THEN
+	RESPONSE #100
+		SetGlobalTimer("FightTimer","LOCALS",90)
+		SpellNoDec(Myself,BERSERKER_RAGE)
+                Attack(NearestEnemyOf(Myself))
+END
+
+//**********************************************************
+//**********************************************************
+//**********************************************************
+
+
+IF
+	HPPercentLT(Myself,20)
+	!GlobalTimerNotExpired("DrankPotionTimer","LOCALS")
+	HasItem("POTN55",Myself) // Poción de curación extra
+THEN
+	RESPONSE #100
+		SetGlobalTimer("DrankPotionTimer","LOCALS",6)
+		DisplayStringHead(Myself,46150) // se bebe una poción
+		UseItem("POTN55",Myself) // Poción de curación extra
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	Allegiance(Myself,ENEMY)
+	HPPercentLT(Myself,30)
+	//Delay(5)
+	!GlobalTimerNotExpired("DrankPotionTimer","LOCALS")
+	HasItem("POTN10",Myself) // Poción de invisibilidad
+	!StateCheck(Myself,STATE_INVISIBLE)
+	!StateCheck(Myself,STATE_IMPROVEDINVISIBILITY)
+THEN
+	RESPONSE #100
+		SetGlobalTimer("DrankPotionTimer","LOCALS",6)
+		DisplayStringHead(Myself,46150) // se bebe una poción
+		UseItem("POTN10",Myself) // Poción de invisibilidad
+                Attack(NearestEnemyOf(Myself))
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	Range(NearestEnemyOf(Myself),7)
+THEN
+	RESPONSE #100
+		EquipMostDamagingMelee()
+		AttackReevaluate(NearestEnemyOf(Myself),45)
+END
+
+
+IF
+	AttackedBy([ANYONE],DEFAULT)
+THEN
+	RESPONSE #100
+		Attack(LastAttackerOf(Myself))
+END
+
+
+
+
