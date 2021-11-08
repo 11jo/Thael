@@ -1,0 +1,9 @@
+IF
+  Global("ThaelExiste","AR0700",0)
+THEN
+  RESPONSE #100
+    SetGlobal("ThaelExiste","AR0700",1)
+    CreateCreature("Thael",[3160.1205],3)  // Añado a Thael
+END
+
+

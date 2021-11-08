@@ -1,0 +1,1 @@
+This dummy file is present only to avoid archivers or dearchivers not to create the backup directory (an issue with some of them).

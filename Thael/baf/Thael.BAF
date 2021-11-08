@@ -1,0 +1,312 @@
+//***************PRESENTACION***********************************
+
+IF
+	See(Player1)
+	NumTimesTalkedTo(0)
+	CombatCounter(0)
+THEN
+	RESPONSE #100
+		Dialogue([PC])
+                //StartDialogueNoSet(Player1)
+END
+
+
+	
+//*************DIALOGOS DE ENTRADA EN AREA  SoA*****************
+
+IF
+	AreaCheck("AR0314")
+	Global("ThaelGrook","GLOBAL",0)
+	InParty(Myself)
+	Detect([PC])
+THEN
+	RESPONSE #100
+		StartDialogueNoSet(Player1)
+		SetGlobal("ThaelGrook","GLOBAL",1)
+END
+
+IF
+	AreaCheck("AR0600")
+	Global("ThaelCirco","GLOBAL",0)
+	InParty(Myself)
+	Detect([PC])
+THEN
+	RESPONSE #100
+		StartDialogueNoSet(Player1)
+		SetGlobal("ThaelCirco","GLOBAL",1)
+END
+
+IF
+	AreaCheck("AR2100")
+	Global("ThaelInfraoscuridad","GLOBAL",0)
+	InParty(Myself)
+	Detect([PC])
+THEN
+	RESPONSE #100
+		StartDialogueNoSet(Player1)
+		SetGlobal("ThaelInfraoscuridad","GLOBAL",1)
+END  
+
+
+IF
+	AreaCheck("AR2200")
+	Global("ThaelUstNatha","GLOBAL",0)
+	InParty(Myself)
+	Detect([PC])
+THEN
+	RESPONSE #100
+		StartDialogueNoSet(Player1)
+		SetGlobal("ThaelUstNatha","GLOBAL",1)
+END
+
+
+IF
+	AreaCheck("AR0808")
+	Global("ThaelBodhiFinal","GLOBAL",0)
+	InParty(Myself)
+	Detect([PC])
+THEN
+	RESPONSE #100
+		StartDialogueNoSet(Player1)
+		SetGlobal("ThaelBodhiFinal","GLOBAL",1)
+END
+
+IF
+	AreaCheck("AR2800")
+	Global("ThaelSuldanessalar","GLOBAL",0)
+	InParty(Myself)
+	Detect([PC])
+THEN
+	RESPONSE #100
+		StartDialogueNoSet(Player1)
+		SetGlobal("ThaelSuldanessalar","GLOBAL",1)
+END
+
+
+//*****Thael pierde pista a Sendai******************************
+
+
+IF
+  InParty(Myself)
+  !See([ENEMY])
+  Detect([PC])
+  PartyHasItem("MISCA6")
+  Global("PistaPerdida","GLOBAL",0)
+THEN
+  RESPONSE #100
+     Wait(5)
+     StartDialogueNoSet(Player1)
+     SetGlobal("PistaPerdida","GLOBAL",1)
+END
+
+
+//**************PESAMES***************************************
+
+IF
+	InParty("Viconia")
+        InParty(Myself)
+	Dead("Viconia")
+	Global("ViconiaDie","LOCALS",0)
+THEN
+	RESPONSE #100
+		Interact([PC])
+END
+
+
+IF
+	InParty("Keldorn")
+        InParty(Myself)
+	Dead("Keldorn")
+	Global("KeldornDie","LOCALS",0)
+THEN
+	RESPONSE #100
+		Interact([PC])
+END
+
+
+//***********DIALOGOS CON PC**************************************
+
+IF
+InParty(Myself)
+GlobalTimerExpired("ThaelDialogo","GLOBAL")
+CombatCounter(0)
+!See([ENEMY])
+!Range([NEUTRAL],10)
+OR(2)
+Global("DialogosconThael","LOCALS",1)
+Global("DialogosconThael","LOCALS",3)
+THEN
+RESPONSE #100
+IncrementGlobal("DialogosconThael","LOCALS",1)
+Interact(Player1)
+END
+
+//****************************************************************
+//****************************************************************
+
+
+//**************LevelUPVelvevlos SoA******************************
+
+
+IF
+	Global("TalkedToCarlig","GLOBAL",1)
+	Global("ThaelInfraoscuridad","GLOBAL",1)
+        HasItem("Velve1",Myself)
+	InParty(Myself)
+THEN
+	RESPONSE #100
+                Wait(3)
+	        DestroyItem("Velve1")
+                CreateVisualEffectObject("SPROTECT","Thael")
+                GiveItemCreate("Velve2","Thael",0,0,0)
+                SetGlobal("ThaelVelve2Charla","GLOBAL",1)
+END  
+
+IF
+	Global("TalkedToCarlig","GLOBAL",1)
+	Global("ThaelInfraoscuridad","GLOBAL",1)
+        Global("ThaelVelve2Charla","GLOBAL",1)
+        HasItem("Velve2",Myself)
+	InParty(Myself)
+	Detect([PC])
+THEN
+	RESPONSE #100
+                Wait(2)
+		StartDialogueNoSet(Player1)
+		SetGlobal("ThaelVelve2Charla","GLOBAL",2)
+END
+
+//****************************************************************
+
+
+//*************Evitar duplicación de Velvevlos****************
+
+IF
+	PartyHasItem("Velve2")
+	PartyHasItem("Velve1")
+        
+THEN
+	RESPONSE #100
+	        DestroyItem("Velve1")
+END  
+
+
+IF
+	NumItemsPartyGT("Velve1",1)
+        
+THEN
+	RESPONSE #100
+                TakePartyItemNum("Velve1",1)
+	        DestroyItem("Velve1")
+END 
+
+IF
+	NumItemsPartyGT("Velve2",1)
+        
+THEN
+	RESPONSE #100
+                TakePartyItemNum("Velve2",1)
+	        DestroyItem("Velve2")
+END 
+
+
+//********Velvevlos retorna a Thael********************************
+
+
+IF
+	PartyHasItem("Velve1")	
+        !HasItem("Velve1",Myself)
+        InParty(Myself)
+        
+THEN
+	RESPONSE #100
+                Wait(1)          
+           	TakePartyItem("Velve1")
+END  
+
+
+IF
+	PartyHasItem("Velve2")	
+        !HasItem("Velve2",Myself)
+        InParty(Myself)
+THEN
+	RESPONSE #100
+                Wait(1)
+		TakePartyItem("Velve2")
+END  
+
+
+//*********************************************
+
+IF
+	Global("ThaelAdmitido","GLOBAL",0)
+	PartyHasItem("Velve1")	
+        !HasItem("Velve1",Myself)
+        
+THEN
+	RESPONSE #100
+                Wait(1)
+                TakePartyItemNum("Velve1",1)
+	        DestroyItem("Velve1")
+                GiveItemCreate("Velve1","Thael",0,0,0)
+END  
+
+IF
+	Global("ThaelAdmitido","GLOBAL",0)
+	PartyHasItem("Velve2")	
+        !HasItem("Velve2",Myself)
+        
+THEN
+	RESPONSE #100
+                Wait(1)
+                TakePartyItemNum("Velve2",1)
+	        DestroyItem("Velve2")
+                GiveItemCreate("Velve2","Thael",0,0,0)
+END  
+
+//********Velvevlos ha desaparecido***********************
+
+
+IF
+	Global("ThaelAdmitido","GLOBAL",1)
+        Global("VelveSeFue","GLOBAL",0)
+        !PartyHasItem("Velve1")	
+	!PartyHasItem("Velve2")	
+        !PartyHasItem("Velve3")	
+        
+THEN
+	RESPONSE #100
+                
+                SetGlobal("VelveSeFue","GLOBAL",1)
+                SetGlobalTimer("MaldicionVelvevlos","GLOBAL",6000)
+                Continue()
+
+END  
+
+
+IF
+  Global("ThaelAdmitido","GLOBAL",1)
+  Global("VelveSeFue","GLOBAL",1)
+  OR(3)
+  	PartyHasItem("Velve1")	
+  	PartyHasItem("Velve2")	
+  	PartyHasItem("Velve3")	
+THEN
+ RESPONSE #100
+	SetGlobal("VelveSeFue","GLOBAL",0)
+END
+
+
+IF
+  Global("ThaelAdmitido","GLOBAL",1)
+  Global("VelveSeFue","GLOBAL",1)
+  !PartyHasItem("Velve1")	
+  !PartyHasItem("Velve2")	
+  !PartyHasItem("Velve3")	
+  GlobalTimerExpired("MaldicionVelvevlos","GLOBAL")
+THEN
+ RESPONSE #100
+	SetGlobal("VelveSeFue","GLOBAL",0)
+        DisplayStringHead(Myself,@0 /* ~¡Que demonios!...¡No Velvevlos!. ¡¡NO ME MATES!!~ */)
+  	Kill("Thael")
+END

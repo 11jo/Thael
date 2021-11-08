@@ -1,0 +1,322 @@
+//***************PRESENTACION***********************************
+
+IF
+	Global("ThaelSummoned","GLOBAL",1)
+THEN
+	RESPONSE #100
+		StartDialogueNoSet([PC])
+		Wait(1)
+END
+
+//*************DIALOGOS DE ENTRADA EN AREA  ToB*****************
+
+IF
+	AreaCheck("AR5200")
+	Global("ActividadVolcanica","GLOBAL",0)
+	InParty(Myself)
+	Detect([PC])
+THEN
+	RESPONSE #100
+		StartDialogueNoSet(Player1)
+		SetGlobal("ActividadVolcanica","GLOBAL",1)
+END
+
+
+IF
+	AreaCheck("AR6100")
+	Global("ThaelAfuerasSendai","GLOBAL",0)
+	InParty(Myself)
+	Detect([PC])
+THEN
+	RESPONSE #100
+		StartDialogueNoSet(Player1)
+		SetGlobal("ThaelAfuerasSendai","GLOBAL",1)
+END
+
+
+//******************************************************************************************
+//Por alguna extraña razón el Thael se queda bloqueado tras el dialogo, salvo que duplique la asignación de variable
+//******************************************************************************************
+
+IF
+	AreaCheck("AR6101")
+	Global("EscondrijoSendai","GLOBAL",0)
+	InParty(Myself)
+	Detect([PC])
+THEN
+	RESPONSE #100
+		StartDialogueNoSet(Player1)
+		SetGlobal("EscondrijoSendai","GLOBAL",1)
+		SetGlobal("EscondrijoSendai","GLOBAL",1)
+
+END
+
+//********************************************************
+
+IF
+	AreaCheck("AR6105")
+	Global("ThaelDiayzha","GLOBAL",0)
+	InParty(Myself)
+	Detect([PC])
+THEN
+	RESPONSE #100
+		StartDialogueNoSet(Player1)
+		SetGlobal("ThaelDiayzha","GLOBAL",1)
+
+END
+
+//**************PESAMES***************************************
+
+
+IF
+	InParty("Viconia")
+        InParty(Myself)
+	Dead("Viconia")
+        Global("IllaseraSpawn","GLOBAL",1)
+	Global("ViconiaDieTOB","LOCALS",0)
+THEN
+	RESPONSE #100
+		Interact([PC])
+END
+
+//**************LevelUPVelvevlos ToB***************************
+
+
+IF
+	AreaCheck("AR5003")
+        HasItem("Velve1",Myself)
+	Global("LevelUpVelve","GLOBAL",0)
+	InParty(Myself)
+THEN
+	RESPONSE #100
+		Wait(3)
+		DestroyItem("Velve1")
+                CreateVisualEffectObject("SPROTECT","Thael")
+                GiveItemCreate("Velve3","Thael",0,0,0)
+//                SetGlobal("ThaelVelve3Charla","GLOBAL",1)
+		SetGlobal("LevelUpVelve","GLOBAL",1)		
+END
+
+IF
+	AreaCheck("AR5003")
+        HasItem("Velve2",Myself)
+	Global("LevelUpVelve","GLOBAL",0)
+	InParty(Myself)
+THEN
+	RESPONSE #100
+		Wait(3)
+		DestroyItem("Velve2")
+                CreateVisualEffectObject("SPROTECT","Thael")
+                GiveItemCreate("Velve3","Thael",0,0,0)
+              //  SetGlobal("ThaelVelve3Charla","GLOBAL",1)
+		SetGlobal("LevelUpVelve","GLOBAL",1)		
+END
+
+
+IF
+//        Global("ThaelVelve3Charla","GLOBAL",1)
+        Global("LevelUpVelve","GLOBAL",1)	
+        HasItem("Velve3",Myself)
+	InParty(Myself)
+	Detect([PC])
+THEN
+	RESPONSE #100
+                Wait(2)
+		StartDialogueNoSet(Player1)
+//		SetGlobal("ThaelVelve3Charla","GLOBAL",2)
+END
+
+
+
+
+//***********************************************************
+
+//*************Evitar duplicación de Velvevlos****************
+
+IF
+	PartyHasItem("Velve2")
+	PartyHasItem("Velve1")
+        
+THEN
+	RESPONSE #100
+
+	        DestroyItem("Velve1")
+END  
+
+
+IF
+	PartyHasItem("Velve3")
+	PartyHasItem("Velve1")
+        
+THEN
+	RESPONSE #100
+
+	        DestroyItem("Velve1")
+END  
+
+IF
+	PartyHasItem("Velve3")
+	PartyHasItem("Velve2")
+        
+THEN
+	RESPONSE #100
+
+	        DestroyItem("Velve2")
+END  
+
+
+IF
+	NumItemsPartyGT("Velve3",1)
+        
+THEN
+	RESPONSE #100
+                TakePartyItemNum("Velve3",1)
+	        DestroyItem("Velve3")
+END  
+
+
+//*****Velvevlos retorna a Thael******************************
+
+
+
+IF
+	PartyHasItem("Velve1")	
+        !HasItem("Velve1",Myself)
+        
+THEN
+	RESPONSE #100
+                Wait(1)          
+           	TakePartyItem("Velve1")            
+END  
+
+
+IF
+	PartyHasItem("Velve2")	
+        !HasItem("Velve2",Myself)
+THEN
+	RESPONSE #100
+                Wait(1)
+		TakePartyItem("Velve2")
+END 
+
+
+
+IF
+	PartyHasItem("Velve3")	
+        !HasItem("Velve3",Myself)
+THEN
+	RESPONSE #100
+                Wait(1)
+		TakePartyItem("Velve3")
+END  
+
+//***********************************************
+
+
+IF
+	Global("ThaelKickedOut","GLOBAL",1)
+	PartyHasItem("Velve2")	
+        
+THEN
+	RESPONSE #100
+                Wait(1)
+                TakePartyItemNum("Velve2",1)
+	        DestroyItem("Velve2")
+                GiveItemCreate("Velve2","Thael",0,0,0)
+END  
+
+IF
+	Global("ThaelKickedOut","GLOBAL",1)
+	PartyHasItem("Velve3")	
+        
+THEN
+	RESPONSE #100
+                Wait(1)
+                TakePartyItemNum("Velve3",1)
+	        DestroyItem("Velve3")
+                GiveItemCreate("Velve3","Thael",0,0,0)
+END  
+
+//********Velvevlos ha desaparecido***********************
+
+
+IF
+	Global("ThaelKickedOut","GLOBAL",0)
+        Global("VelveSeFue","GLOBAL",0)
+        !PartyHasItem("Velve1")	
+	!PartyHasItem("Velve2")	
+        !PartyHasItem("Velve3")	
+        
+THEN
+	RESPONSE #100
+                
+                SetGlobal("VelveSeFue","GLOBAL",1)
+                SetGlobalTimer("MaldicionVelvevlos","GLOBAL",6000)
+                Continue()
+
+END  
+
+
+IF
+  Global("ThaelKickedOut","GLOBAL",0)
+  Global("VelveSeFue","GLOBAL",1)
+  OR(3)
+  	PartyHasItem("Velve1")	
+  	PartyHasItem("Velve2")	
+  	PartyHasItem("Velve3")	
+THEN
+ RESPONSE #100
+	SetGlobal("VelveSeFue","GLOBAL",0)
+END
+
+
+IF
+  Global("ThaelKickedOut","GLOBAL",0)
+  Global("VelveSeFue","GLOBAL",1)
+  !PartyHasItem("Velve1")	
+  !PartyHasItem("Velve2")	
+  !PartyHasItem("Velve3")	
+  GlobalTimerExpired("MaldicionVelvevlos","GLOBAL")
+THEN
+ RESPONSE #100
+	SetGlobal("VelveSeFue","GLOBAL",0)
+        DisplayStringHead(Myself,@0 /* ~¡Que demonios!...¡No Velvevlos!. ¡¡NO ME MATES!!~ */)
+  	Kill("Thael")
+END
+
+//**********************************************
+//***********LOS INFERNALES*********************
+//**********************************************
+
+IF
+    AreaCheck("AR4500")
+    OR(2)
+	    PartyHasItem("HAMM10")	//Martillo +4 de Runas
+            PartyHasItem("SW1H77")	//Espada +4 La Respondedora
+    Global("ZakiSpawnPlane","GLOBAL",0)
+    InParty("Thael")
+THEN
+    RESPONSE #100
+        Wait(4)
+	StartDialogueNoSet(Player1) 
+        SetGlobal("ZakiSpawnPlane","GLOBAL",1)
+END
+
+//********Muerte de Sendai********************************
+
+IF
+    AreaCheck("AR6108")
+    PartyHasItem("LEAT23")	
+    PartyHasItem("HELM34")	
+    Global("ThaelMuerteSendai","GLOBAL",0)
+    InParty("Thael")
+THEN
+    RESPONSE #100
+	StartDialogueNoSet(Player1)   
+        SetGlobal("ThaelMuerteSendai","GLOBAL",1)
+END
+
+
+
+
+

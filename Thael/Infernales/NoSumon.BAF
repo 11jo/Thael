@@ -1,0 +1,18 @@
+/////////////////////////////////////////////////////////////////////
+// Poder Innato: Eliminar Invocaciones
+/////////////////////////////////////////////////////////////////////
+IF
+	Allegiance(Myself,ENEMY)
+	See([GOODCUTOFF.0.0.0.0.SUMMONED])
+        !GlobalTimerNotExpired("NoSumonInfernales","GLOBAL")
+		
+THEN
+	RESPONSE #100
+	  EquipMostDamagingMelee()
+	  AttackReevaluate(NearestEnemyOf(Myself),30)
+          
+	RESPONSE #80
+          DisplayStringHead(Myself,@0 /* ~Poder Innato Activado~ */)
+	  ForceSpell(LastSeenBy(Myself),WIZARD_DEATH_SPELL)
+	  SetGlobalTimer("NoSumonInfernales","GLOBAL",20)      
+END

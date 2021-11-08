@@ -1,0 +1,11 @@
+
+IF
+    Global("ThaelSummoned","GLOBAL",1)
+    Global("ThaelSpawnPlane","GLOBAL",0)
+THEN
+    RESPONSE #100
+        CreateVisualEffect("SPPORTAL",[1999.1218])
+        Wait(2)
+        CreateCreature("Thael25",[1999.1218],0)      //Añadir Thael
+        SetGlobal("ThaelSpawnPlane","GLOBAL",1)
+END

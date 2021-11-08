@@ -1,0 +1,50 @@
+IF
+	See([PC])
+	NumTimesTalkedTo(0)
+THEN
+	RESPONSE #100
+		StartDialogueNoSet([PC])
+		Wait(1)
+END
+
+
+IF
+    AreaCheck("AR4500")
+    Global("InfernalesSummoned","GLOBAL",1)
+THEN
+    RESPONSE #100
+        ReallyForceSpell (Myself,WIZARD_STONE_SKIN)
+       
+        CreateVisualEffect("SPPORTAL",[1702.1483])
+        CreateVisualEffect("SPPORTAL",[2286.1479])       
+        CreateVisualEffect("SPPORTAL",[2113.1609])
+        CreateVisualEffect("SPPORTAL",[1993.1110])
+        CreateVisualEffect("SPPORTAL",[1882.1184])
+        CreateVisualEffect("SPPORTAL",[2110.1184])
+        CreateVisualEffect("SPPORTAL",[1755.1286])
+        CreateVisualEffect("SPPORTAL",[2231.1286])
+        CreateVisualEffect("SPPORTAL",[1705.1377])
+        CreateVisualEffect("SPPORTAL",[2300.1377])
+        CreateVisualEffect("SPPORTAL",[1755.1575])
+	CreateVisualEffect("SPPORTAL",[2231.1575])
+	CreateVisualEffect("SPPORTAL",[1877.1613])
+	CreateVisualEffect("SPPORTAL",[1993.1613])	
+	CreateVisualEffect("SPPORTAL",[2106.1715])
+        Wait(2)
+	CreateCreature("Tief_W2",[1702.1483],0)  //war2
+	CreateCreature("Tief_W2",[2286.1479],0)  //war2
+        CreateCreature("Tief_W1",[2113.1609],0)  //war1
+        CreateCreature("Tief_W1",[1993.1110],0)  //war1
+	CreateCreature("Tief_W1",[1882.1184],0)  //war1
+	CreateCreature("Tief_W1",[2110.1184],0)  //war1
+	CreateCreature("Tief_W2",[1755.1286],0)  //war2
+	CreateCreature("Tief_W2",[2231.1286],0)  //war2
+	CreateCreature("Tief_As",[1705.1377],0)  //ass
+	CreateCreature("Tief_As",[2300.1377],0)  //ass
+	CreateCreature("Tief_W2",[1755.1575],0)  //war2
+        CreateCreature("Tief_W2",[2231.1575],0)  //war2					
+        CreateCreature("Tief_W1",[1877.1613],0)  //war1
+        CreateCreature("Tief_W1",[1993.1613],0)  //war1
+	CreateCreature("Tief_As",[2106.1715],0)  //ass    
+        SetGlobal("InfernalesSummoned","GLOBAL",2)
+END

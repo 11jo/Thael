@@ -1,0 +1,18 @@
+IF
+    Global("StartEndBios","AR6200",1)
+    InParty("Thael")
+    Global("ThaelBio","GLOBAL",0)
+THEN
+    RESPONSE #100
+        SetGlobal("ThaelBio","GLOBAL",1)
+        TextScreen("ThaEnd")
+        SetGlobal("ThaelBio","GLOBAL",1)
+        SmallWait(1)
+        SetGlobal("ThaelBio","GLOBAL",1)
+        Continue()
+        SetGlobal("ThaelBio","GLOBAL",1)
+END
+
+
+
+

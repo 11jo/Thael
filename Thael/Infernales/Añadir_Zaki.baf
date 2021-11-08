@@ -1,0 +1,16 @@
+IF
+    AreaCheck("AR4500")
+    OR(2)
+	    PartyHasItem("HAMM10")	
+            PartyHasItem("SW1H77")	
+    Global("ZakiSummoned","GLOBAL",0)
+    Global("ZakiSpawnPlane","GLOBAL",1)
+    InParty("Thael")
+THEN
+    RESPONSE #100
+	Wait(5)
+        CreateVisualEffect("SPPORTAL",[1995.1047])
+        Wait(2)
+	CreateCreature("Zaki",[1995.1047],0)   
+        SetGlobal("ZakiSpawnPlane","GLOBAL",2)
+END
