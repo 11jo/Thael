@@ -12,6 +12,44 @@ VERSION ~v2.32~
 // This removes the need to use COMPILE-USING directive for each COMPILE action.
 AUTO_TRA ~thael/tra/%s~
 
+
+/* next comes the definition of the journal numbers so EET's continuous journal system works, too Emprunter à Branwen bg2 npc */
+ALWAYS
+  ACTION_IF NOT VARIABLE_IS_SET bg2_chapter BEGIN
+    ACTION_IF GAME_IS ~eet~ BEGIN
+      OUTER_SET bg2_chapter = 12 // EET uses continuous chapter numbering from BG1 through TOB and this starts at "12" in BGII
+    END ELSE BEGIN
+      OUTER_SET bg2_chapter = 0 // all other game types (BGII(:EE), BGT) restart chapter numbering in SOA
+    END
+    OUTER_FOR (i=1; i<=10; i=i+1) BEGIN
+      OUTER_SET bg2_chapter = bg2_chapter + 1
+      OUTER_SPRINT name_source ~bg2_chapter_%i%~
+      OUTER_SET EVAL ~%name_source%~ = bg2_chapter
+    END
+  END
+  
+ 
+     // convert strings to UTF-8 for BGEE/BG2EE
+/*
+Small addition by jastey (same as in the readme):
+Please note: for BGII:EE and EET, if you want to create a mod that uses any other letters or symbols than the latin (english) alphabet, you need to provide the texts in UTF-8 (without BOM) format, whereas the original game needs them in ANSI. So in case you do, you'll need to get familiar with using d/tra-pairs in your mod ("traify-ing" your mod) and using HANDLE_CHARSETS + iconv.exe for text transformation upon install. 
+*/
+	
+ACTION_DEFINE_ARRAY 9xnoconvert BEGIN END //list here files that do not need to be converted, e.g. a file that only contains setup files.
+ACTION_DEFINE_ARRAY 9xreload BEGIN setup END //list the files that get read in after LANGUAGE declaration so the correct format will be used for ingame texts.
+
+  LAF HANDLE_CHARSETS
+    INT_VAR
+      infer_charsets = 1
+    STR_VAR
+      tra_path = EVAL ~%MOD_FOLDER%/tra~
+      noconvert_array = 9xnoconvert
+      reload_array = 9xreload
+END  
+ 
+  
+END
+
 ///////////////////////////////////////////////////////////////////////
 // Language Options
 //
@@ -91,18 +129,36 @@ APPEND ~interdia.2da~
 UNLESS ~Thael~
 
 
-// Copia retratos
+// Copia retratos      Emprunter à Auren Aseph npc
 
-COPY ~Thael\portraits\SarevokM.bmp~ ~portraits\SarevokM.bmp~
-COPY ~Thael\portraits\SarevokS.bmp~ ~portraits\SarevokS.bmp~
+ACTION_IF GAME_IS BG2EE THEN BEGIN
 
-COPY ~Thael\portraits\ThaelL.bmp~ ~portraits\ThaelL.bmp~
-COPY ~Thael\portraits\ThaelS.bmp~ ~portraits\ThaelS.bmp~
-COPY ~Thael\portraits\ThaelG.bmp~ ~portraits\ThaelG.bmp~
-COPY ~Thael\portraits\ZakiL.bmp~ ~portraits\ZakiL.bmp~
-COPY ~Thael\portraits\ZakiS.bmp~ ~portraits\ZakiS.bmp~
-COPY ~Thael\portraits\SindelL.bmp~ ~portraits\SindelL.bmp~
-COPY ~Thael\portraits\SindelS.bmp~ ~portraits\SindelS.bmp~
+  COPY ~Thael/portraits/SarevokL_ee.bmp~ ~override/SarevokM.bmp~
+       ~Thael/portraits/SarevokM_ee.bmp~ ~override/SarevokS.bmp~
+       ~Thael/portraits/ThaelL_ee.bmp~ ~override/ThaelL.bmp~
+       ~Thael/portraits/ThaelM_ee.bmp~ ~override/ThaelS.bmp~
+       ~Thael/portraits/ZakiL_ee.bmp~ ~override/ZakiL.bmp~
+       ~Thael/portraits/ZakiM_ee.bmp~ ~override/ZakiS.bmp~
+       ~Thael/portraits/SindelL_ee.bmp~ ~override/SindelL.bmp~
+       ~Thael/portraits/SindelM_ee.bmp~ ~override/SindelS.bmp~
+
+
+
+
+
+END ELSE BEGIN
+
+  COPY ~Thael/portraits/SarevokM.bmp~ ~override/SarevokM.bmp~
+       ~Thael/portraits/SarevokS.bmp~ ~override/SarevokS.bmp~
+       ~Thael/portraits/ThaelL.bmp~ ~override/ThaelL.bmp~
+       ~Thael/portraits/ThaelS.bmp~ ~override/ThaelS.bmp~
+       ~Thael/portraits/ThaelG.bmp~ ~override/ThaelG.bmp~
+       ~Thael/portraits/ZakiL.bmp~ ~override/ZakiL.bmp~
+       ~Thael/portraits/ZakiS.bmp~ ~override/ZakiS.bmp~
+       ~Thael/portraits/SindelL.bmp~ ~override/SindelL.bmp~
+       ~Thael/portraits/SindelS.bmp~ ~override/SindelS.bmp~
+
+END
 
 
 // Copia Thael y asigna strings para el SoA

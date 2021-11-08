@@ -126,3 +126,8 @@ VII. VERSIONS
        - Zeroed effects offset in [Thael\Sindel\GBuss.cre]
        - Added VERSION flag
        - Updated to WeiDU v215
+
+  2.5 - Ajout de la fonction HANDLE_CHARSETS pour convertir les lignes de textes pour EE.
+      - Ajout de la continuité des chapitres pour EET .
+      - Taille des portraits des Npc adapté pour EE.
+      - Update weidu   

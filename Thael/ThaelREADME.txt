@@ -144,3 +144,8 @@ VII. VERSIONES
        - Zeroed effects offset in [Thael\Sindel\GBuss.cre]
        - Added VERSION flag
        - Updated to WeiDU v215
+
+  2.5 - Added WeiDU's built-in HANDLE_CHARSETS function to convert string entries for EE games.
+      - Added chapters continuity for EET games.
+      - Provided accurate sized NPCs portraits for EE games.
+      - Update weidu   
