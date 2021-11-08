@@ -1,0 +1,128 @@
+﻿JEU :      Baldur's Gate II
+MOD : 	   THAEL, Elfe Mage-voleur et VELVEVLOS, Lame Sanglante.
+VERSION :  2.32
+CREATEUR : Sergiond
+
+S'il vous plaît, contactez Sergiond ( sergiond77@hotmail.com ) si vous rencontrez une erreur ou un autre imprévu.
+
+
+ÍNDEX:
+  	 I. Installation et désinstallation
+        II. Compatibilité 
+       III. A propos du mod
+        IV. Crédits
+         V. Remerciements 
+        VI. Versions 
+
+I. INSTALLATION :
+
+- Assurez vous préalablement que vous avez installé correctement BG2 : SoA et ToB.
+- Même si ce n'est pas obligatoire, je vous conseille d'installer le dernier patch de ToB.
+- Exécutez la décompression de ThaelNPC.exe et sélectionnez le menu principal de BG2.
+- Exécutez le Setup-Thael.exe
+- Ce mod peut être installé/désinstallé sans causer aucun problème lors de l'installation de BG2.
+- Pour DESINSTALLER : exécutez de nouveau Setup-Thael.exe et vous aurez la possibilité de réinstaller ou de désinstaller. 
+
+II. COMPATIBILITE :
+
+- Ce mod est compatible avec SoA et ToB. Cependant, ToB est recommandé.
+- Il est également compatible avec n'importe quel autre mod tant qu'il est compilé avec Weidu.
+
+III. A PROPOS DU MOD :
+
+Dans le mod ThaelNPC vous pourrez trouver :
+
+- Thael, un elfe mage-voleur qui pourra se joindre à votre groupe à la Promenade de Waukyne, tout près du cirque. Si vous jouez à ToB, vous pourrez l'invoquer à la Sphère Planaire.
+- Thael porte une épée courte appelée Velvevlos, un puissant artefact ayant une grande influence sur lui. 
+- Au contact des terribles énergies magiques que renferme Velvelos, Thael a subi quelques mutations. L'une d'entre elle est très utile en combat. Vous avez la possibilité d'y accéder dans la partie réservée aux capacités spéciales des personnages. Je l'ai nommé « Pouvoir Mutant », original n'est-ce-pas ?
+- Le mod ThaelNPC apporte une grande quantité de dialogues et d'interactions, avec presque toujours plusieurs options de réponses.
+  Je pense que je pourrais apporter plus, mais je crois qu'il est bon de laisser autant de personnalité qu'au personnage principal.
+- ThaelNPC ne contient PAS de romance. Je ne voulais pas vous faire subir la mièvrerie des liens et des mots d'amour lancés aux quatre vents. 
+  Par contre, comme vous pourrez le constater, j'ai réalisé ce PNJ dans la perspective qu'il tombe amoureux à la fin.
+- Thael possède sa propre quête qui se déroule tout au long de SoA et atteint son apogée dans ToB. C'est pour cette raison qu'il est important d'avoir à la fois SoA et ToB installés.
+- Dans SoA, vous pourrez rencontrer Sindel et sa bande. Une bande de bandits de haut niveau.
+- Dans ToB, votre groupe aura une rencontre « mouvementée » avec un groupe de mercenaires appelés « les Infernaux » dirigé par le mage Zakisinais'Kithak, même si vous pouvez l'appeler Zaki, un hybride, un tieffelin descendant d'un puissant Archiinfernal.
+- Le lourd passé de Thael et l'influence de Velvevlos sur celui-ci, font de lui, de mon point de vue, un PNJ très intéressant à jouer. Essayez-le !
+
+IV. CREDITS :
+
+-   Idée et design :                             Sergiond 
+-   Programmation développement :                Sergiond
+-   Voix de Thael, Sindel et Zaki :              Sergiond
+
+
+V. REMERCIEMENTS :
+
+  Pour continuer, je nommerai quelques personnes membres d'associations ou de clans qui m'ont aidé à chaque étape de la création de ce mod. Vous verrez qu'il y a quelques passages en anglais, c'est pour que certaines personnes de langue anglaise comprennent ce que j'ai écrit.
+
+- Merci à DLAN, pour toute l'information et les ressources qu'ils mettent à disposition des moddeurs. Vous devez obligatoirement visiter le site de DLAN à http://www.clandlan.net/
+- Un grand merci à Mhoram, Nevaziah et Eslizon de DLAN.
+- Un merci tout particulier à Jason Compton, SimDing0 et Camdawg de Pocket Plane Group, pour avoir été très tolérant envers mes questions rédigées dans un anglais parfois approximatif. Vous pouvez les rencontrer, eux et leurs mods sur http://www.pocketplane.net/
+- Je crois qu'il y a une page web sur laquelle il y a l'un des meilleurs tutorials en espagnol pour les dialogues. Joli travail Riojano2002 !. L'adresse est http://www.laforjacelestial.tk/
+- Westley Weimer pour WeiDU. Sa page est http://www.weidu.org
+- Bioware pour avoir réalisé un jeu si formidable.
+
+VI. SPOILERS
+
+- Ojito con perder a Velvevlos. El poderoso artefacto no permitirá que su portador se vaya de rositas y al cabo de poco tiempo lo matará.
+- Sindel, la hija de Bhaal que se puede encontrar en el Distrito del Puerto, es una guerrera de niveles épicos y usará las habilidades disponibles a esa escala. Es aconsejable llegar a un nivel mínimo de 12 o 13 si se quiere luchar con ella. 
+- Los Infernales, si aparecen, lo harán en el ToB y solo después de haber pasado por el Oasis. ¡Cuidado, son duros de verdad!. Aunque cada jugador tiene sus estrategias, nunca viene mal abusar de hechizos como los Marchitamientos, los Cometas y las Devas.
+- Cuidado con Zaki, el lider de los Infernales. Tiene en su poder algunos Pergaminos Rúnicos muy poderosos que al ser leidos desencadenan contingencias a nivel épico. 
+
+
+VII. VERSIONS
+
+  1.0  - Paquet complet Thael NPC. Inclut le PNJ (avec les voix et les portraits), ITM, SPL, GROOK, LES ENFERS et les épilogues.
+  
+  1.1  - Modification de quelques dialogues pour les rendre plus appropriés.
+  
+  1.2  - Ajustement du portrait de Zaki. 
+       - Optimisation des codes de Velvevlos lors des passages de niveau.
+       - Maintenant Velvevlos a dans sa description une nouvelle variable qui indique son niveau de pouvoir.
+       - Correction d'une erreur dans les caractéristiques de Velvevlos lors du premier passage de niveau.
+       - Modification de quelques dialogues pour les rendre plus appropriés ; corrections orthographiques.
+       - Modificacion de l'IA de Thael. Changement de quelques algorithmes d'identification. LONG_BOW pour le MAGE_ALL. Cela évite
+         les incompatibilités avec quelques installations de BG2. Malheureusement les deux classes définissent le même.
+       - Ajustement du pouvoir mutant de Thael
+       - Correction d'une erreur concernant le moment où les Infernaux doivent apparaître.
+       - Zaki reformaté. Son IA a été renforcée et personnalisée. Les coups et la contingence propres à un tieffelin avec un statut de demi-dieu. 
+
+  1.3  - Grook a maintenant trois compagnons : Buch, Buss et Buba
+       - Correction d'un bug dans l'attribution d'une archive wav.
+
+  1.4  - Grook abandonné au profit de Sindel.
+       - Nouveaux scripts pour Zaki et Sindel.
+       - Nouveaux dialogues.
+
+  1.41  - Correction des fautes d'orthographe.
+
+  1.42  - Atténuation du complexe de « guide de camp » dans certains dialogues de Thael.
+
+  1.5  - Ajout d'un algorithme qui élimine les possibles duplications de l'épée Velvevlos. 
+       - Ajout d'un algorithme qui fait que Velvevlos essaye d'être par tous les moyens avec Thael.
+       - Ajout de la « Malédiction de Velvevlos » par laquelle son abandon prolongé cause la mort de son porteur.
+       - Réécriture de certains dialogues.
+       - Réparation d'un bug dans l'épée Velvevlos au troisième niveau.
+
+  1.6  - Réparation d'un bug important quand Thael abandonne le groupe.
+       - Nouveaux dialogues.
+ 
+  2.0  - Merci à Isaya de l'équipe de traduction française 'les d'Oghmatiques', pour avoir traifié Thael, et corrigé une erreur de programmation.
+
+  2.1  - Ajout de la traduction allemande par Leonardo Watson.
+
+  2.2  - Ajout de la traduction française réalisée par Althéa (des d'Oghmatiques).
+
+  2.3  - Corregidas algunas líneas TRAificadas de los archivos sindel.d y thael_d.d
+       - Actualizada la traducción alemana.
+       - Retocados algunos diálogos de Thael con <CHARNAME>
+       - Incluidos nuevos banters de Thael con Anomen, Nalia y Haer Dalis 
+       - Actualizado el README y añadido un nuevo epígrafe sobre spoilers.
+       - Nuevas voces para Thael gracias a Saemon de Clan DLAN
+
+  2.31 - Traduction française réalisée par Althéa (des d'Oghmatiques)
+
+  2.32 - Lollorian's corrected GLOBAL typo - Thael_d.D
+       - Zeroed effects offset in [Thael\Sindel\GBuss.cre]
+       - Added VERSION flag
+       - Updated to WeiDU v215
