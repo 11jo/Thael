@@ -1,0 +1,135 @@
+@0    = ~THAEL, Elfo Mago-Ladron y VELVEVLOS, Hoja Sangrienta~
+@1    = ~ToB No instalado~
+@2    = ~Thael~
+@3    = ~Saludos amigo.~ [Thael01]
+
+
+@5    = ~¡Velvevlos y  yo os guiaremos hacia la venganza y la victoria!~ [Thael02]
+@6    = ~Tenemos que descansar.~ [Thael03]
+@7    = ~Velvevlos está sedienta. ¡Busquemos a más enemigos!.~ [Thael04]
+@8    = ~¡Eeestás muertoooo!~ [Thael05]
+@9    = ~¡Morirás!~ [Thael06]
+@10   = ~¡Velvevlos beberá de tu gargantaaaa!~ [Thael07]
+@11   = ~¡Tu alma alimentará  mi espada!~ [Thael08]
+@12   = ~¡Bien, más almas que devoraaar!~ [Thael09]
+@13   = ~Aaah~ [Thael10]
+@14   = ~Urrggghhh~ [Thael11]
+@15   = ~Ummmff, estoy perdiendo mucha sangre~ [Thael12]
+@16   = ~Estad atentos, los lugares como estos suelen estar repletos de peligros.~ [Thael13]
+@17   = ~¿Sí?~ [Thael14]
+@18   = ~¿Qué quieres?~ [Thael15]
+@19   = ~Dime~ [Thael16]
+@20   = ~¿Mhmmmm?~ [Thael20]
+@21   = ~¿Quieres algo?~ [Thael17]
+@22   = ~¿Qué?~ [Thael18]
+@23   = ~Lo haremos~ [Thael19]
+@24   = ~Facil~ [Thael21]
+@25   = ~De acuerdo~ [Thael22]
+@26   = ~Allá vamos~ [Thael23]
+@27   = ~Dalo por hecho~ [Thael24]
+@28   = ~Ahora mismo~ [Thael25]
+@29   = ~En seguida~ [Thael26]
+@30   = ~Nethesa, Luriviel...¡juro que os vengaré!.~ [Thael27]
+
+
+@32   = ~¡Buen golpe!~ [Thael29]
+@33   = ~¡Fallé!.~ [Thael30]
+@34   = ~¡Es inmune!~ [Thael31]
+@35   = ~Uff, no puedo cargar con más~ [Thael32]
+@36   = ~Mmm, demasiado facil.~ [Thael33]
+@37   = ~Ahora no pueden vernos.~ [Thael34]
+@38   = ~Trampa lista~ [Thael35]
+@39   = ~Thael es un elfo lunar con un aspecto nada corriente. Su pelo es largo y plateado, su piel tiene una textura metálica de color dorado y sus ojos despiden una tenue luz de color verde. 
+Su caracter introvertido y serio da pocas concesiones para poder preguntarle sobre su pasado, pero cuando te atreves a hacerlo su cara adquiere un semblante mortecino y sus ojos brillan con tal intesidad que parece que su mirada pudiera atravesarte. Sin duda lleva en su interior un gran pesar... 
+Cuando te responde con su susurrante voz, desvía habilmente la respuesta, con lo que al final solo te vienes a enterar de que antes de empezar a viajar, era el mago de una pequeña comunidad de elfos al sur de Bosque Alto donde vivía él y su familia. Al parecer, su pericia con las artes del latrocinio la fue adquiriendo por necesidad más adelante, durante sus aventuras a lo largo de la Costa de la Espada.~
+@40   = ~Tras vengarse finalmente de Sendai y ayudar a <CHARNAME> a alcanzar su destino, Thael, no encontrando más razones para vivir, se retiró a morir a las ruinas de Lorenthelian, donde yacían los restos de su mujer y su hija. 
+Pero Velvevlos es un vil artefacto con una sed de sangre infinita y no estaba dispuesto a ser olvidado en las ruinas de un poblado destruido. Pasó entonces que, cuando Thael se encontraba atravesando hacia el norte el Bosque de Tethyr, sufrió una emboscada de un partida de guerra drow procedente de la Infraoscuridad. 
+Thael no tuvo ni una sola oportunidad... La "Hoja Sangrienta" conocedora del destino que le esperaba, aprovechó la oportunidad para revelar su posición a los drows, traicionar a su portador y ser reclamada por un nuevo dueño. Afortunadamente, Thael consiguió escapar con vida, pero con las heridas sufridas tras el encuentro, y sin Velvevlos para protegerlo y curarlo, terminó por caer inconsciente, abandonandose por completo a su anhelada muerte tras haber estado vagando moribundo durante horas por aquel bosque.
+Ocho días más tarde, Thael despertó en la Casa de Curación de Suldanessalar. Durante casi un mes estuvo recuperandose de sus graves heridas bajo los atentos cuidados de una bella elfa de grandes ojos azules y larga melena rubia llamada Lisilde, una Sacerdotisa de Corellon. Con los cuidados de ésta poderosa sanadora, Thael no solo curó sus heridas físicas sino que además sanó su alma con las enseñanzas religiosas de la sacerdotisa. Thael nunca más volvió a pensar en quitarse la vida, se asentó en Suldanessalar y diez años más tarde contrajo matrimonio con Lisilde, con la que por fin volvió a encontrar el amor.~
+
+@41   = ~Poder Mutante~
+@42   = ~
+Poder Mutante de Thael
+
+Duración: 1 asalto/nivel
+Tiempo de lanzamiento: 6
+Area de efecto: Thael
+Tirada de salvación: Ninguna
+
+Las mutaciones que Thael ha sufrido le han menguado en muchos aspectos, pero por otro lado, y solo en un par de ocasiones al día, Thael puede experimentar una asombrosa transformación: Su fuerza se incrementa hasta alcanzar proporciones heroicas, convirtiéndose en una formidable máquina de combate. 
+.........Sus puntos de golpe se duplican, y todo el daño que sufra se resta primero de los nuevos puntos obtenidos. Además, su armadura mejora en 4 puntos con respecto a la que tuviera antes de invocar su poder mutante (hasta un máximo de -10 a la Clase de la Armadura).
+.........Efectuará todos sus ataques como si fuera un guerrero con su mismo nivel de mago. Incluso tendrá la posibilidad de seguir usando hechizos. Además, realizará todos sus ataques con un +2, y cada golpe exitoso que dé en combate infligirá 2 puntos de daño adicionales. El efecto durará hasta que expire o sea anulado.~
+@43   = ~Espada corta~
+@44   = ~Velvevlos~
+@45   = ~La espada corta fue el primer tipo de espada utilizada y se podría describir como una especie de daga de hoja tan larga que ya deja de ser una daga. En la clasificación de espadas no se incluye el término espada corta. Sin embargo, la utilización de este vocablo se ha generalizado para describir una hoja de doble filo de aproximadamente 60 cm. de longitud. La punta de la espada suele ser afilada, perfecta para apuñalar.~
+@46   = ~Velvevlos, conocida por otros como Hoja Sangrienta, es una espada corta  que tiene una factura bastante extraña, incluso para ser un arma de origen drow. Por una parte está su empuñadura, la cual, se acopla de tal forma a la mano de Thael, que no sabes muy bien quien sujeta a quien. Por otro lado está su hoja, de aspecto inacabado y realizada con un ligero pero durisimo metal en el cual aparecen inscritas runas mágicas que no consigues descifrar ya que, al parecer, la espada tiene el poder suficiente como para impedir que se averiguen sus capacidades. 
+Dado lo nervioso que se pone Thael ante tu insistente interes por saber algo más de su espada, prefieres dejarlo para otro momento, aunque no te tranquiliza el hecho de que de la espada emane un halo de maldad tan grande. 
+
+
+ESTADÍSTICAS:
+
+Aptitudes especiales: Desconocidas, aunque al parecer, casi todas ellas destinadas a proteger al portador.   
+
+Aptitudes de combate: Desconocidas, pero cuentan las leyendas que con cada nueva muerte se vuelve más poderosa.
+
+Nivel de Poder: Medio
+
+Tipo de talento: Espada corta
+
+Solo la puede usar: Velvevlos tiene establecido un vínculo telepático con Thael, el cual, parece ser el único capaz de esgrimirla correctamente.~
+@47   = ~Velvevlos, conocida por otros como Hoja Sangrienta, es una espada corta  que tiene una factura bastante extraña, incluso para ser un arma de origen drow. Por una parte está su empuñadura, la cual, se acopla de tal forma a la mano de Thael, que no sabes muy bien quien sujeta a quien. Por otro lado está su hoja, de aspecto inacabado y realizada con un ligero pero durisimo metal en el cual aparecen inscritas runas mágicas que no consigues descifrar ya que, al parecer, la espada tiene el poder suficiente como para impedir que se averiguen sus capacidades. 
+Dado lo nervioso que se pone Thael ante tu insistente interes por saber algo más de su espada, prefieres dejarlo para otro momento, aunque no te tranquiliza el hecho de que de la espada emane un halo de maldad tan grande. 
+
+
+ESTADÍSTICAS:
+
+Aptitudes especiales: Desconocidas, aunque al parecer, casi todas ellas destinadas a proteger al portador.   
+
+Aptitudes de combate: Desconocidas, pero cuentan las leyendas que con cada nueva muerte se vuelve más poderosa.
+
+Nivel de Poder: Alto
+
+Tipo de talento: Espada corta
+
+Solo la puede usar: Velvevlos tiene establecido un vínculo telepático con Thael, el cual, parece ser el único capaz de esgrimirla correctamente.~
+@48   = ~Velvevlos, conocida por otros como Hoja Sangrienta, es una espada corta que tiene una factura bastante extraña, incluso para ser un arma de origen drow. Por una parte está su empuñadura, la cual, se acopla de tal forma a la mano de Thael, que no sabes muy bien quien sujeta a quien. Por otro lado está su hoja, de aspecto inacabado y realizada con un ligero pero durisimo metal en el cual aparecen inscritas runas mágicas que no consigues descifrar ya que, al parecer, la espada tiene el poder suficiente como para impedir que se averiguen sus capacidades. 
+Dado lo nervioso que se pone Thael ante tu insistente interes por saber algo más de su espada, prefieres dejarlo para otro momento, aunque no te tranquiliza el hecho de que de la espada emane un halo de maldad tan grande. 
+
+
+ESTADÍSTICAS:
+
+Aptitudes especiales: Desconocidas, aunque al parecer, casi todas ellas destinadas a proteger al portador.   
+
+Aptitudes de combate: Desconocidas, pero cuentan las leyendas que con cada nueva muerte se vuelve más poderosa.
+
+Nivel de Poder: Descomunal
+
+Tipo de talento: Espada corta
+
+Solo la puede usar: Velvevlos tiene establecido un vínculo telepático con Thael, el cual, parece ser el único capaz de esgrimirla correctamente.~
+
+@49   = ~Sindel~
+@50   = ~¡Mirad lo que tenemos aquí!~ [Sindel01]
+@51   = ~¡Prueba el filo de mis espadas!~ [Sindel02]
+@52   = ~¡Es la voluntad de nuestro Padre!~ [Sindel03]
+@53   = ~¡ Prueba el filo de mis espadas!~ [Sindel02]
+@54   = ~¡ Es la voluntad de nuestro Padre!~ [Sindel03]
+@55   = ~¡ Es la voluntad de nuestro Padre!~ [Sindel02]
+@56   = ~Ouch~ [Sindel04]
+@57   = ~Uhhgg~ [Sindel05]
+@58   = ~¿Eeh?~ [Sindel06]
+@59   = ~¡Allá voy!~ [Sindel07]
+@60   = ~¡Te di!~ [Sindel08]
+@61   = ~¡Fallé!.~ [Sindel09]
+@62   = ~Buch~
+@63   = ~Buss~
+@64   = ~Buba~
+@65   = ~Zaki~
+@66   = ~Jijijiji~ [Zaki01]
+@67   = ~¡Jijijiji!~ [Zaki01]
+@68   = ~Ayyy~ [Zaki02]
+@69   = ~Ufff~ [Zaki03]
+@70   = ~¡¡Jijijiji!!~ [Zaki01]
+@71   = ~Upss~ [Zaki04]
+
+@72   = ~Opcional: Instalar primera version de las voces para Thael~
