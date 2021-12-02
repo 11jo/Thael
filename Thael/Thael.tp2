@@ -1,0 +1,581 @@
+
+BACKUP ~Thael\backup~
+AUTHOR ~sergiond77@hotmail.com~
+
+VERSION ~v2.32~
+
+//////////////////////// INSERTED FOR TRANSLATION SUPPORT /////////////////////
+
+// AUTO_TRA tells WeiDU to use by default the TRA file having the same name as
+// dialog or script being compiled in the thael/tra/<language> directory,
+// where <language> is the language selected by the user.
+// This removes the need to use COMPILE-USING directive for each COMPILE action.
+AUTO_TRA ~thael/tra/%s~
+
+
+/*  Emprunter � Branwen bg2 npc */
+ALWAYS
+  ACTION_IF NOT VARIABLE_IS_SET bg2_chapter BEGIN
+    ACTION_IF GAME_IS ~eet~ BEGIN
+      OUTER_SET bg2_chapter = 12 // EET uses continuous chapter numbering from BG1 through TOB and this starts at "12" in BGII
+    END ELSE BEGIN
+      OUTER_SET bg2_chapter = 0 // all other game types (BGII(:EE), BGT) restart chapter numbering in SOA
+    END
+    OUTER_FOR (i=1; i<=10; i=i+1) BEGIN
+      OUTER_SET bg2_chapter = bg2_chapter + 1
+      OUTER_SPRINT name_source ~bg2_chapter_%i%~
+      OUTER_SET EVAL ~%name_source%~ = bg2_chapter
+    END
+  END
+  
+ 
+     // convert strings to UTF-8 for BGEE/BG2EE
+
+	
+ACTION_DEFINE_ARRAY 9xnoconvert BEGIN END //list here files that do not need to be converted, e.g. a file that only contains setup files.
+ACTION_DEFINE_ARRAY 9xreload BEGIN setup END //list the files that get read in after LANGUAGE declaration so the correct format will be used for ingame texts.
+
+  LAF HANDLE_CHARSETS
+    INT_VAR
+      infer_charsets = 1
+    STR_VAR
+      tra_path = EVAL ~%MOD_FOLDER%/tra~
+      noconvert_array = 9xnoconvert
+      reload_array = 9xreload
+END  
+ 
+  
+END
+
+///////////////////////////////////////////////////////////////////////
+// Language Options
+//
+// This section is optional. If you list more than one language, the
+// user gets a choice. The first argument is the name of the language
+// as presented to the user, the second is the translation directory
+// name, and any others are translation files that should be loaded
+// immediately (e.g., because they contain the translated names of the
+// modules the user will install, such as in the setup).
+///////////////////////////////////////////////////////////////////////
+
+LANGUAGE ~Castellano~
+         ~castellano~
+         ~thael/tra/castellano/setup.tra~
+         
+LANGUAGE ~Deutsch (by Leonardo Watson)~
+         ~deutsch~
+         ~thael/tra/deutsch/setup.tra~
+
+LANGUAGE ~Francais (by Althea, from the d'Oghmatiques)~
+         ~french~
+         ~thael/tra/french/setup.tra~		 
+        
+
+
+//////////////////////// END OF TRANSLATION SUPPORT /////////////////////
+
+//**************************************************************
+//**************************************************************
+
+
+BEGIN @0 /* ~THAEL, Elfo Mago-Ladron y VELVEVLOS, Hoja Sangrienta~ */
+
+REQUIRE_FILE ~data/25dialog.bif~ @1 /* ~ToB No instalado~ */
+
+
+
+//***********THAEL********************************************
+
+
+// Compila di�logos
+
+//////////////////////// MODIFIED FOR TRANSLATION SUPPORT /////////////////////
+// Thael.d and Thael25.d were renamed as Thael_d.d and Thael25_d.d to avoid
+// conflicts in the names of the TRA files.
+///////////////////////////////////////////////////////////////////////////////
+
+COMPILE ~Thael\d\Thael_d.d~
+COMPILE ~Thael\d\Thael25_d.d~
+COMPILE ~Thael\d\ThaelTob.d~
+
+
+
+// Compila scripts
+
+COMPILE ~Thael\baf\Thael.baf~
+COMPILE ~Thael\baf\Thaelx.baf~
+COMPILE ~Thael\baf\Thael25.baf~
+EXTEND_TOP ~ar0700.bcs~ ~Thael\baf\A�adir_Thael.baf~
+EXTEND_BOTTOM ~ar4500.bcs~ ~Thael\baf\A�adir_ThaelToB.baf~
+
+
+// Parchea .2da
+
+//////////////////////// NOTE FOR TRANSLATION SUPPORT /////////////////////////
+// WeiDU v200 replaces the "Thael" name on the UNLESS lines by references to the
+// TRA file (@2) during the "traifycation". And it doesn't like it during
+// installation. Fixed.
+///////////////////////////////////////////////////////////////////////////////
+
+APPEND ~pdialog.2da~                                                     
+~Thael	ThaelP	ThaelJ	ThaelD	Thael25P  Thael25J  Thael25D  Thael25~
+UNLESS ~Thael~
+
+APPEND ~interdia.2da~                                                    
+~Thael  BThael  BThael25~                  
+UNLESS ~Thael~
+
+
+// Copia retratos      Emprunter � Auren Aseph npc
+
+ACTION_IF GAME_IS BG2EE THEN BEGIN
+
+  COPY ~Thael/portraits/SarevokL_ee.bmp~ ~override/SarevokM.bmp~
+       ~Thael/portraits/SarevokM_ee.bmp~ ~override/SarevokS.bmp~
+       ~Thael/portraits/ThaelL_ee.bmp~ ~override/ThaelL.bmp~
+       ~Thael/portraits/ThaelM_ee.bmp~ ~override/ThaelS.bmp~
+       ~Thael/portraits/ZakiL_ee.bmp~ ~override/ZakiL.bmp~
+       ~Thael/portraits/ZakiM_ee.bmp~ ~override/ZakiS.bmp~
+       ~Thael/portraits/SindelL_ee.bmp~ ~override/SindelL.bmp~
+       ~Thael/portraits/SindelM_ee.bmp~ ~override/SindelS.bmp~
+
+
+
+
+
+END ELSE BEGIN
+
+  COPY ~Thael/portraits/SarevokM.bmp~ ~override/SarevokM.bmp~
+       ~Thael/portraits/SarevokS.bmp~ ~override/SarevokS.bmp~
+       ~Thael/portraits/ThaelL.bmp~ ~override/ThaelL.bmp~
+       ~Thael/portraits/ThaelS.bmp~ ~override/ThaelS.bmp~
+       ~Thael/portraits/ThaelG.bmp~ ~override/ThaelG.bmp~
+       ~Thael/portraits/ZakiL.bmp~ ~override/ZakiL.bmp~
+       ~Thael/portraits/ZakiS.bmp~ ~override/ZakiS.bmp~
+       ~Thael/portraits/SindelL.bmp~ ~override/SindelL.bmp~
+       ~Thael/portraits/SindelS.bmp~ ~override/SindelS.bmp~
+
+END
+
+
+// Copia Thael y asigna strings para el SoA
+
+COPY ~Thael\CRE\Thael.cre~ ~override\Thael.cre~
+
+SAY NAME1 @2 /* ~Thael~ */
+SAY NAME2 @2 /* ~Thael~ */
+SAY INITIAL_MEETING @3 /* ~Saludos amigo.~ */
+SAY MORALE ~~
+SAY HAPPY ~~ 
+SAY UNHAPPY_ANNOYED ~~
+SAY UNHAPPY_SERIOUS ~~
+SAY UNHAPPY_BREAKING ~~
+SAY LEADER @5 /* ~�Velvevlos y  yo os guiaremos hacia la venganza y la victoria!~ */  
+SAY TIRED @6 /* ~Tenemos que descansar.~ */  
+SAY BORED @7 /* ~Velvevlos est� sedienta. �Busquemos a m�s enemigos!.~ */ 
+SAY BATTLE_CRY1 @8 /* ~�Eeest�s muertoooo!~ */ 
+SAY BATTLE_CRY2 @9 /* ~�Morir�s!~ */ 
+SAY BATTLE_CRY3 @10 /* ~�Velvevlos beber� de tu gargantaaaa!~ */ 
+SAY BATTLE_CRY4 @11 /* ~�Tu alma alimentar�  mi espada!~ */ 
+SAY BATTLE_CRY5 @12 /* ~�Bien, m�s almas que devoraaar!~ */ 
+SAY DAMAGE @13 /* ~Aaah~ */ 
+SAY DYING @14 /* ~Urrggghhh~ */ 
+SAY HURT @15 /* ~Ummmff, estoy perdiendo mucha sangre~ */ 
+SAY AREA_FOREST ~~ 
+SAY AREA_CITY ~~
+SAY AREA_DUNGEON @16 /* ~Estad atentos, los lugares como estos suelen estar repletos de peligros.~ */ 
+SAY AREA_DAY ~~ 
+SAY AREA_NIGHT ~~
+SAY SELECT_COMMON1 @17 /* ~�S�?~ */ 
+SAY SELECT_COMMON2 @18 /* ~�Qu� quieres?~ */ 
+SAY SELECT_COMMON3 @19 /* ~Dime~ */ 
+SAY SELECT_COMMON4 @20 /* ~�Mhmmmm?~ */ 
+SAY SELECT_COMMON5 @21 /* ~�Quieres algo?~ */ 
+SAY SELECT_COMMON6 @22 /* ~�Qu�?~ */ 
+SAY SELECT_ACTION1 @23 /* ~Lo haremos~ */ 
+SAY SELECT_ACTION2 @24 /* ~Facil~ */ 
+SAY SELECT_ACTION3 @25 /* ~De acuerdo~ */ 
+SAY SELECT_ACTION4 @26 /* ~All� vamos~ */ 
+SAY SELECT_ACTION5 @27 /* ~Dalo por hecho~ */ 
+SAY SELECT_ACTION6 @28 /* ~Ahora mismo~ */ 
+SAY SELECT_ACTION7 @29 /* ~En seguida~ */ 
+SAY SELECT_RARE1 @30 /* ~Nethesa, Luriviel...�juro que os vengar�!.~ */ 
+SAY SELECT_RARE2 ~~ [Thael28]
+SAY CRITICAL_HIT @32 /* ~�Buen golpe!~ */ 
+SAY CRITICAL_MISS @33 /* @61 /* ~�Fall�!.~ */ */ 
+SAY TARGET_IMMUNE @34 /* ~�Es inmune!~ */  
+SAY INVENTORY_FULL @35 /* ~Uff, no puedo cargar con m�s~ */ 
+SAY PICKED_POCKET @36 /* ~Mmm, demasiado facil.~ */ 
+SAY HIDDEN_IN_SHADOWS @37 /* ~Ahora no pueden vernos.~ */ 
+SAY SET_A_TRAP @38 /* ~Trampa lista~ */ 
+SAY EXISTANCE2 @13 /* ~Aaah~ */ 
+
+SAY BIO @39 /* ~Thael es un elfo lunar con un aspecto nada corriente. Su pelo es largo y plateado, su piel tiene una textura met�lica de color dorado y sus ojos despiden una tenue luz de color verde. 
+Su caracter introvertido y serio da pocas concesiones para poder preguntarle sobre su pasado, pero cuando te atreves a hacerlo su cara adquiere un semblante mortecino y sus ojos brillan con tal intesidad que parece que su mirada pudiera atravesarte. Sin duda lleva en su interior un gran pesar... 
+Cuando te responde con su susurrante voz, desv�a habilmente la respuesta, con lo que al final solo te vienes a enterar de que antes de empezar a viajar, era el mago de una peque�a comunidad de elfos al sur de Bosque Alto donde viv�a �l y su familia. Al parecer, su pericia con las artes del latrocinio la fue adquiriendo por necesidad m�s adelante, durante sus aventuras a lo largo de la Costa de la Espada.~ */
+
+
+// Copia Thael y asigna strings para el ToB
+
+COPY ~Thael\CRE\Thael25.cre~ ~override\Thael25.cre~
+
+SAY NAME1 @2 /* ~Thael~ */
+SAY NAME2 @2 /* ~Thael~ */
+SAY INITIAL_MEETING @3 /* ~Saludos amigo.~ */
+SAY MORALE ~~
+SAY HAPPY ~~ 
+SAY UNHAPPY_ANNOYED ~~
+SAY UNHAPPY_SERIOUS ~~
+SAY UNHAPPY_BREAKING ~~
+SAY LEADER @5 /* ~�Velvevlos y  yo os guiaremos hacia la venganza y la victoria!~ */  
+SAY TIRED @6 /* ~Tenemos que descansar.~ */  
+SAY BORED @7 /* ~Velvevlos est� sedienta. �Busquemos a m�s enemigos!.~ */ 
+SAY BATTLE_CRY1 @8 /* ~�Eeest�s muertoooo!~ */ 
+SAY BATTLE_CRY2 @9 /* ~�Morir�s!~ */ 
+SAY BATTLE_CRY3 @10 /* ~�Velvevlos beber� de tu gargantaaaa!~ */ 
+SAY BATTLE_CRY4 @11 /* ~�Tu alma alimentar�  mi espada!~ */ 
+SAY BATTLE_CRY5 @12 /* ~�Bien, m�s almas que devoraaar!~ */ 
+SAY DAMAGE @13 /* ~Aaah~ */ 
+SAY DYING @14 /* ~Urrggghhh~ */ 
+SAY HURT @15 /* ~Ummmff, estoy perdiendo mucha sangre~ */ 
+SAY AREA_FOREST ~~ 
+SAY AREA_CITY ~~
+SAY AREA_DUNGEON @16 /* ~Estad atentos, los lugares como estos suelen estar repletos de peligros.~ */ 
+SAY AREA_DAY ~~ 
+SAY AREA_NIGHT ~~
+SAY SELECT_COMMON1 @17 /* ~�S�?~ */ 
+SAY SELECT_COMMON2 @18 /* ~�Qu� quieres?~ */ 
+SAY SELECT_COMMON3 @19 /* ~Dime~ */ 
+SAY SELECT_COMMON5 @21 /* ~�Quieres algo?~ */ 
+SAY SELECT_COMMON4 @20 /* ~�Mhmmmm?~ */ 
+SAY SELECT_COMMON6 @22 /* ~�Qu�?~ */ 
+SAY SELECT_ACTION1 @23 /* ~Lo haremos~ */ 
+SAY SELECT_ACTION2 @24 /* ~Facil~ */ 
+SAY SELECT_ACTION3 @25 /* ~De acuerdo~ */ 
+SAY SELECT_ACTION4 @26 /* ~All� vamos~ */ 
+SAY SELECT_ACTION5 @27 /* ~Dalo por hecho~ */ 
+SAY SELECT_ACTION6 @28 /* ~Ahora mismo~ */ 
+SAY SELECT_ACTION7 @29 /* ~En seguida~ */ 
+SAY SELECT_RARE1 @30 /* ~Nethesa, Luriviel...�juro que os vengar�!.~ */ 
+SAY SELECT_RARE2 ~~ [Thael28]
+SAY CRITICAL_HIT @32 /* ~�Buen golpe!~ */ 
+SAY CRITICAL_MISS @33 /* @61 /* ~�Fall�!.~ */ */ 
+SAY TARGET_IMMUNE @34 /* ~�Es inmune!~ */  
+SAY INVENTORY_FULL @35 /* ~Uff, no puedo cargar con m�s~ */ 
+SAY PICKED_POCKET @36 /* ~Mmm, demasiado facil.~ */ 
+SAY HIDDEN_IN_SHADOWS @37 /* ~Ahora no pueden vernos.~ */ 
+SAY SET_A_TRAP @38 /* ~Trampa lista~ */ 
+
+SAY BIO @39 /* ~Thael es un elfo lunar con un aspecto nada corriente. Su pelo es largo y plateado, su piel tiene una textura met�lica de color dorado y sus ojos despiden una tenue luz de color verde. 
+Su caracter introvertido y serio da pocas concesiones para poder preguntarle sobre su pasado, pero cuando te atreves a hacerlo su cara adquiere un semblante mortecino y sus ojos brillan con tal intesidad que parece que su mirada pudiera atravesarte. Sin duda lleva en su interior un gran pesar... 
+Cuando te responde con su susurrante voz, desv�a habilmente la respuesta, con lo que al final solo te vienes a enterar de que antes de empezar a viajar, era el mago de una peque�a comunidad de elfos al sur de Bosque Alto donde viv�a �l y su familia. Al parecer, su pericia con las artes del latrocinio la fue adquiriendo por necesidad m�s adelante, durante sus aventuras a lo largo de la Costa de la Espada.~ */
+
+
+//*************************************************************
+//Ep�logo en TOB***********************************************
+//*************************************************************
+
+
+EXTEND_TOP ~ar6200.bcs~ ~Thael\EPILOGO\ThaelAR6200.baf~
+COPY ~Thael\EPILOGO\ThaEnd.2da~ ~override\ThaEnd.2da~
+REPLACE ~99999~ @40 /* ~Tras vengarse finalmente de Sendai y ayudar a <CHARNAME> a alcanzar su destino, Thael, no encontrando m�s razones para vivir, se retir� a morir a las ruinas de Lorenthelian, donde yac�an los restos de su mujer y su hija. 
+Pero Velvevlos es un vil artefacto con una sed de sangre infinita y no estaba dispuesto a ser olvidado en las ruinas de un poblado destruido. Pas� entonces que, cuando Thael se encontraba atravesando hacia el norte el Bosque de Tethyr, sufri� una emboscada de un partida de guerra drow procedente de la Infraoscuridad. 
+Thael no tuvo ni una sola oportunidad... La "Hoja Sangrienta" conocedora del destino que le esperaba, aprovech� la oportunidad para revelar su posici�n a los drows, traicionar a su portador y ser reclamada por un nuevo due�o. Afortunadamente, Thael consigui� escapar con vida, pero con las heridas sufridas tras el encuentro, y sin Velvevlos para protegerlo y curarlo, termin� por caer inconsciente, abandonandose por completo a su anhelada muerte tras haber estado vagando moribundo durante horas por aquel bosque.
+Ocho d�as m�s tarde, Thael despert� en la Casa de Curaci�n de Suldanessalar. Durante casi un mes estuvo recuperandose de sus graves heridas bajo los atentos cuidados de una bella elfa de grandes ojos azules y larga melena rubia llamada Lisilde, una Sacerdotisa de Corellon. Con los cuidados de �sta poderosa sanadora, Thael no solo cur� sus heridas f�sicas sino que adem�s san� su alma con las ense�anzas religiosas de la sacerdotisa. Thael nunca m�s volvi� a pensar en quitarse la vida, se asent� en Suldanessalar y diez a�os m�s tarde contrajo matrimonio con Lisilde, con la que por fin volvi� a encontrar el amor.~ */
+
+
+//*************************************************************
+
+// Copia hechizos y asigna strings
+
+COPY ~Thael\spl\Thael.spl~ ~override\Thael.spl~ 
+SAY NAME1 @41 /* ~Poder Mutante~ */
+SAY NAME2 @41 /* ~Poder Mutante~ */
+
+SAY DESC @42 /* ~
+Poder Mutante de Thael
+
+Duraci�n: 1 asalto/nivel
+Tiempo de lanzamiento: 6
+Area de efecto: Thael
+Tirada de salvaci�n: Ninguna
+
+Las mutaciones que Thael ha sufrido le han menguado en muchos aspectos, pero por otro lado, y solo en un par de ocasiones al d�a, Thael puede experimentar una asombrosa transformaci�n: Su fuerza se incrementa hasta alcanzar proporciones heroicas, convirti�ndose en una formidable m�quina de combate. 
+.........Sus puntos de golpe se duplican, y todo el da�o que sufra se resta primero de los nuevos puntos obtenidos. Adem�s, su armadura mejora en 4 puntos con respecto a la que tuviera antes de invocar su poder mutante (hasta un m�ximo de -10 a la Clase de la Armadura).
+.........Efectuar� todos sus ataques como si fuera un guerrero con su mismo nivel de mago. Incluso tendr� la posibilidad de seguir usando hechizos. Adem�s, realizar� todos sus ataques con un +2, y cada golpe exitoso que d� en combate infligir� 2 puntos de da�o adicionales. El efecto durar� hasta que expire o sea anulado.~ */
+
+//**************************************************************
+
+COPY ~Thael\sound~ ~override~
+
+//**************************************************************
+//**************************************************************
+
+// Copia items y asigna strings
+
+
+//VELVEVLOS Fase1
+
+
+COPY ~Thael\Itm\Velve1.Itm~ ~override\Velve1.Itm~
+SAY NAME1 @43 /* ~Espada corta~ */
+SAY NAME2 @44 /* ~Velvevlos~ */
+
+SAY UNIDENTIFIED_DESC @45 /* ~La espada corta fue el primer tipo de espada utilizada y se podr�a describir como una especie de daga de hoja tan larga que ya deja de ser una daga. En la clasificaci�n de espadas no se incluye el t�rmino espada corta. Sin embargo, la utilizaci�n de este vocablo se ha generalizado para describir una hoja de doble filo de aproximadamente 60 cm. de longitud. La punta de la espada suele ser afilada, perfecta para apu�alar.~ */
+
+
+SAY DESC @46 /* ~Velvevlos, conocida por otros como Hoja Sangrienta, es una espada corta  que tiene una factura bastante extra�a, incluso para ser un arma de origen drow. Por una parte est� su empu�adura, la cual, se acopla de tal forma a la mano de Thael, que no sabes muy bien quien sujeta a quien. Por otro lado est� su hoja, de aspecto inacabado y realizada con un ligero pero durisimo metal en el cual aparecen inscritas runas m�gicas que no consigues descifrar ya que, al parecer, la espada tiene el poder suficiente como para impedir que se averiguen sus capacidades. 
+Dado lo nervioso que se pone Thael ante tu insistente interes por saber algo m�s de su espada, prefieres dejarlo para otro momento, aunque no te tranquiliza el hecho de que de la espada emane un halo de maldad tan grande. 
+
+
+ESTAD�STICAS:
+
+Aptitudes especiales: Desconocidas, aunque al parecer, casi todas ellas destinadas a proteger al portador.   
+
+Aptitudes de combate: Desconocidas, pero cuentan las leyendas que con cada nueva muerte se vuelve m�s poderosa.
+
+Nivel de Poder: Medio
+
+Tipo de talento: Espada corta
+
+Solo la puede usar: Velvevlos tiene establecido un v�nculo telep�tico con Thael, el cual, parece ser el �nico capaz de esgrimirla correctamente.~ */
+
+
+//*******************************************************
+
+
+//VELVEVLOS Fase 2
+
+COPY ~Thael\Itm\Velve2.Itm~ ~override\Velve2.Itm~
+SAY NAME1 @43 /* ~Espada corta~ */
+SAY NAME2 @44 /* ~Velvevlos~ */
+
+SAY UNIDENTIFIED_DESC @45 /* ~La espada corta fue el primer tipo de espada utilizada y se podr�a describir como una especie de daga de hoja tan larga que ya deja de ser una daga. En la clasificaci�n de espadas no se incluye el t�rmino espada corta. Sin embargo, la utilizaci�n de este vocablo se ha generalizado para describir una hoja de doble filo de aproximadamente 60 cm. de longitud. La punta de la espada suele ser afilada, perfecta para apu�alar.~ */
+
+
+SAY DESC @47 /* ~Velvevlos, conocida por otros como Hoja Sangrienta, es una espada corta  que tiene una factura bastante extra�a, incluso para ser un arma de origen drow. Por una parte est� su empu�adura, la cual, se acopla de tal forma a la mano de Thael, que no sabes muy bien quien sujeta a quien. Por otro lado est� su hoja, de aspecto inacabado y realizada con un ligero pero durisimo metal en el cual aparecen inscritas runas m�gicas que no consigues descifrar ya que, al parecer, la espada tiene el poder suficiente como para impedir que se averiguen sus capacidades. 
+Dado lo nervioso que se pone Thael ante tu insistente interes por saber algo m�s de su espada, prefieres dejarlo para otro momento, aunque no te tranquiliza el hecho de que de la espada emane un halo de maldad tan grande. 
+
+
+ESTAD�STICAS:
+
+Aptitudes especiales: Desconocidas, aunque al parecer, casi todas ellas destinadas a proteger al portador.   
+
+Aptitudes de combate: Desconocidas, pero cuentan las leyendas que con cada nueva muerte se vuelve m�s poderosa.
+
+Nivel de Poder: Alto
+
+Tipo de talento: Espada corta
+
+Solo la puede usar: Velvevlos tiene establecido un v�nculo telep�tico con Thael, el cual, parece ser el �nico capaz de esgrimirla correctamente.~ */
+
+
+//************************************************************
+
+//VELVEVLOS Fase3
+
+
+COPY ~Thael\Itm\Velve3.Itm~ ~override\Velve3.Itm~
+SAY NAME1 @43 /* ~Espada corta~ */
+SAY NAME2 @44 /* ~Velvevlos~ */
+
+SAY UNIDENTIFIED_DESC @45 /* ~La espada corta fue el primer tipo de espada utilizada y se podr�a describir como una especie de daga de hoja tan larga que ya deja de ser una daga. En la clasificaci�n de espadas no se incluye el t�rmino espada corta. Sin embargo, la utilizaci�n de este vocablo se ha generalizado para describir una hoja de doble filo de aproximadamente 60 cm. de longitud. La punta de la espada suele ser afilada, perfecta para apu�alar.~ */
+
+
+SAY DESC @48 /* ~Velvevlos, conocida por otros como Hoja Sangrienta, es una espada corta que tiene una factura bastante extra�a, incluso para ser un arma de origen drow. Por una parte est� su empu�adura, la cual, se acopla de tal forma a la mano de Thael, que no sabes muy bien quien sujeta a quien. Por otro lado est� su hoja, de aspecto inacabado y realizada con un ligero pero durisimo metal en el cual aparecen inscritas runas m�gicas que no consigues descifrar ya que, al parecer, la espada tiene el poder suficiente como para impedir que se averiguen sus capacidades. 
+Dado lo nervioso que se pone Thael ante tu insistente interes por saber algo m�s de su espada, prefieres dejarlo para otro momento, aunque no te tranquiliza el hecho de que de la espada emane un halo de maldad tan grande. 
+
+
+ESTAD�STICAS:
+
+Aptitudes especiales: Desconocidas, aunque al parecer, casi todas ellas destinadas a proteger al portador.   
+
+Aptitudes de combate: Desconocidas, pero cuentan las leyendas que con cada nueva muerte se vuelve m�s poderosa.
+
+Nivel de Poder: Descomunal
+
+Tipo de talento: Espada corta
+
+Solo la puede usar: Velvevlos tiene establecido un v�nculo telep�tico con Thael, el cual, parece ser el �nico capaz de esgrimirla correctamente.~ */
+
+//**************************************************************
+//*****ENCUENTROS***********************************************
+//**************************************************************
+
+
+//*****SINDEL***************************************
+
+
+COMPILE ~Thael\Sindel\Sindel.d~
+COMPILE ~Thael\Sindel\GCompis.d~
+
+COMPILE ~Thael\Sindel\Sindel.baf~
+COMPILE ~Thael\Sindel\SindelX.baf~
+EXTEND_TOP ~ar0314.bcs~ ~Thael\Sindel\A�adir_Sindel.baf~
+COMPILE ~Thael\Sindel\GCompis.baf~
+
+COPY ~Thael\Sindel\Sindel.cre~ ~override\Sindel.cre~
+SAY NAME1 @49 /* ~Sindel~ */
+SAY NAME2 @49 /* ~Sindel~ */
+SAY INITIAL_MEETING @50 /* ~�Mirad lo que tenemos aqu�!~ */ 
+SAY MORALE ~~
+SAY HAPPY ~~ 
+SAY UNHAPPY_ANNOYED ~~
+SAY UNHAPPY_SERIOUS ~~
+SAY UNHAPPY_BREAKING ~~
+SAY LEADER ~~
+SAY TIRED ~~
+SAY BORED ~~
+SAY BATTLE_CRY1 @51 /* ~�Prueba el filo de mis espadas!~ */ 
+SAY BATTLE_CRY2 @52 /* ~�Es la voluntad de nuestro Padre!~ */ 
+SAY BATTLE_CRY3 @53 /* ~� Prueba el filo de mis espadas!~ */ 
+SAY BATTLE_CRY4 @54 /* @55 /* ~� Es la voluntad de nuestro Padre!~ */ */ 
+SAY BATTLE_CRY5 @54 /* @55 /* ~� Es la voluntad de nuestro Padre!~ */ */ 
+SAY DAMAGE @56 /* ~Ouch~ */ 
+SAY DYING @57 /* ~Uhhgg~ */ 
+SAY HURT @57 /* ~Uhhgg~ */ 
+SAY AREA_FOREST ~~ 
+SAY AREA_CITY ~~
+SAY AREA_DUNGEON ~~ 
+SAY AREA_DAY ~~ 
+SAY AREA_NIGHT ~~
+SAY SELECT_COMMON1 @58 /* ~�Eeh?~ */ 
+SAY SELECT_COMMON2 @58 /* ~�Eeh?~ */ 
+SAY SELECT_COMMON3 @58 /* ~�Eeh?~ */ 
+SAY SELECT_COMMON4 @58 /* ~�Eeh?~ */ 
+SAY SELECT_COMMON5 @58 /* ~�Eeh?~ */ 
+SAY SELECT_COMMON6 @58 /* ~�Eeh?~ */ 
+SAY SELECT_ACTION1 @59 /* ~�All� voy!~ */ 
+SAY SELECT_ACTION2 @59 /* ~�All� voy!~ */ 
+SAY SELECT_ACTION3 @59 /* ~�All� voy!~ */ 
+SAY SELECT_ACTION4 @59 /* ~�All� voy!~ */ 
+SAY SELECT_ACTION5 @59 /* ~�All� voy!~ */ 
+SAY SELECT_ACTION6 @59 /* ~�All� voy!~ */ 
+SAY SELECT_ACTION7 @59 /* ~�All� voy!~ */ 
+SAY SELECT_RARE1 ~~
+SAY SELECT_RARE2 ~~
+SAY CRITICAL_HIT @60 /* ~�Te di!~ */ 
+SAY CRITICAL_MISS @33 /* @61 /* ~�Fall�!.~ */ */ 
+SAY PICKED_POCKET @58 /* ~�Eeh?~ */ 
+SAY EXISTANCE1 @58 /* ~�Eeh?~ */ 
+SAY EXISTANCE2 @58 /* ~�Eeh?~ */ 
+SAY EXISTANCE3 @58 /* ~�Eeh?~ */ 
+SAY EXISTANCE4 @58 /* ~�Eeh?~ */ 
+
+
+//////////////////////// NOTE FOR TRANSLATION SUPPORT /////////////////////////
+// WeiDU v200 replaces the "Sindel" name on the UNLESS lines by references to the
+// TRA file (@49) during the "traifycation". And it doesn't like it during
+// installation. Fixed.
+// NOTE: adding Sindel to pdialog.2da and interdia.2da is unneeded as Sindel is not
+// a joinable character. This part could be removed.
+///////////////////////////////////////////////////////////////////////////////
+
+APPEND ~pdialog.2da~                                                     
+~Sindel	SindelP	SindelJ	SindelD	Sindel25P  Sindel25J  Sindel25D  Sindel25~
+UNLESS ~Sindel~
+
+APPEND ~interdia.2da~                                                    
+~Sindel  BSindel  BSindel25~                  
+UNLESS ~Sindel~
+
+
+COPY ~Thael\Sindel\GBuch.cre~ ~override\GBuch.cre~
+SAY NAME1 @62 /* ~Buch~ */
+SAY NAME2 @62 /* ~Buch~ */
+COPY ~Thael\Sindel\GBuss.cre~ ~override\GBuss.cre~
+SAY NAME1 @63 /* ~Buss~ */
+SAY NAME2 @63 /* ~Buss~ */
+COPY ~Thael\Sindel\GBuba.cre~ ~override\GBuba.cre~
+SAY NAME1 @64 /* ~Buba~ */
+SAY NAME2 @64 /* ~Buba~ */
+
+//*****ZAKI***************************************
+
+COMPILE ~Thael\Infernales\Zaki.d~
+
+COMPILE ~Thael\Infernales\Zaki.baf~
+COMPILE ~Thael\Infernales\Zakix.baf~
+
+EXTEND_TOP ~ar4500.bcs~ ~Thael\Infernales\A�adir_Zaki.baf~
+
+EXTEND_TOP ~teltief1.bcs~ ~Thael\Infernales\NoSumon.baf~
+EXTEND_TOP ~gpthief.bcs~ ~Thael\Infernales\NoSumon.baf~
+
+
+COPY ~Thael\Infernales\Zaki.cre~ ~override\Zaki.cre~
+SAY NAME1 @65 /* ~Zaki~ */
+SAY NAME2 @65 /* ~Zaki~ */
+SAY INITIAL_MEETING @66 /* ~Jijijiji~ */ 
+SAY MORALE ~~
+SAY HAPPY ~~ 
+SAY UNHAPPY_ANNOYED ~~
+SAY UNHAPPY_SERIOUS ~~
+SAY UNHAPPY_BREAKING ~~
+SAY LEADER ~~  
+SAY TIRED ~~  
+SAY BORED ~~ 
+SAY BATTLE_CRY1 @67 /* ~�Jijijiji!~ */ 
+SAY BATTLE_CRY2 @67 /* ~�Jijijiji!~ */ 
+SAY BATTLE_CRY3 @67 /* ~�Jijijiji!~ */ 
+SAY BATTLE_CRY4 @67 /* ~�Jijijiji!~ */ 
+SAY BATTLE_CRY5 @67 /* ~�Jijijiji!~ */ 
+SAY DAMAGE @68 /* ~Ayyy~ */ 
+SAY DYING @69 /* ~Ufff~ */ 
+SAY HURT @69 /* ~Ufff~ */ 
+SAY AREA_FOREST ~~ 
+SAY AREA_CITY ~~
+SAY AREA_DUNGEON ~~ 
+SAY AREA_DAY ~~ 
+SAY AREA_NIGHT ~~
+SAY SELECT_COMMON1 @67 /* ~�Jijijiji!~ */ 
+SAY SELECT_COMMON2 @67 /* ~�Jijijiji!~ */ 
+SAY SELECT_COMMON3 @67 /* ~�Jijijiji!~ */ 
+SAY SELECT_COMMON4 @67 /* ~�Jijijiji!~ */ 
+SAY SELECT_COMMON5 @67 /* ~�Jijijiji!~ */ 
+SAY SELECT_COMMON6 @67 /* ~�Jijijiji!~ */ 
+SAY SELECT_ACTION1 @67 /* ~�Jijijiji!~ */ 
+SAY SELECT_ACTION2 @67 /* ~�Jijijiji!~ */ 
+SAY SELECT_ACTION3 @67 /* ~�Jijijiji!~ */ 
+SAY SELECT_ACTION4 @67 /* ~�Jijijiji!~ */ 
+SAY SELECT_ACTION5 @67 /* ~�Jijijiji!~ */ 
+SAY SELECT_ACTION6 @67 /* ~�Jijijiji!~ */ 
+SAY SELECT_ACTION7 @67 /* ~�Jijijiji!~ */ 
+SAY SELECT_RARE1 ~~
+SAY SELECT_RARE2 ~~
+SAY CRITICAL_HIT @70 /* ~��Jijijiji!!~ */ 
+SAY CRITICAL_MISS @71 /* ~Upss~ */ 
+SAY PICKED_POCKET @66 /* ~Jijijiji~ */ 
+SAY EXISTANCE2 @71 /* ~Upss~ */ 
+
+
+//////////////////////// NOTE FOR TRANSLATION SUPPORT /////////////////////////
+// WeiDU v200 replaces the "Zaki" name on the UNLESS lines by references to the
+// TRA file (@65) during the "traifycation". And it doesn't like it during
+// installation. Fixed.
+// NOTE: adding Zaki to pdialog.2da and interdia.2da is unneeded as Zaki is not
+// a joinable character. This part could be removed.
+///////////////////////////////////////////////////////////////////////////////
+
+APPEND ~pdialog.2da~                                                     
+~Zaki	ZakiP	ZakiJ	ZakiD	Zaki25P  Zaki25J  Zaki25D  Zaki25~
+UNLESS ~Zaki~
+
+APPEND ~interdia.2da~                                                    
+~Zaki  BZaki  BZaki25~                  
+UNLESS ~Zaki~
+
+COPY ~Thael\Infernales\Tief_W1.cre~ ~override\Tief_W1.cre~
+COPY ~Thael\Infernales\Tief_W2.cre~ ~override\Tief_W2.cre~
+COPY ~Thael\Infernales\Tief_As.cre~ ~override\Tief_As.cre~
+
+
+
+//////////////////////////////////////////////////////////////////////
+// Voces originales de Thael
+//////////////////////////////////////////////////////////////////////
+
+BEGIN @72 /*~Opcional: Instalar primera version de las voces para Thael~*/
+
+
+COPY ~Thael/Sound-1Version~ ~override~
