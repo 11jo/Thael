@@ -1,13 +1,13 @@
 @0    = ~THAEL, l'elfe mage-voleur et VELVEVLOS, la lame sanglante~
 // Attention : la sorte de virgule à la fin de "install," apparaît bien comme un 'é'
 // lors de l'installation sous DOS. Ne pas corriger.
-@1    = ~ToB non install‚~
+@1    = ~ToB n'est pas installe~
 @2    = ~Thael~
 @3    = ~Salut l'ami~ [Thael01]
 
-@5    = ~Velvelos et moi vous guiderons jusqu'à la vengeance et la victoire !~ [Thael02]
+@5    = ~Velvelos et moi vous guiderons dans ta vengeance et jusqu'à la la victoire !~ [Thael02]
 @6    = ~Nous devons nous reposer~ [Thael03]
-@7    = ~Velvevlos a soif ! Cherchons d'autres ennemis !~ [Thael04]
+@7    = ~Velvevlos a soif de sang ! Trouvons d'autres ennemis !~ [Thael04]
 @8    = ~Tu es mort !~ [Thael05]
 @9    = ~Tu vas mourir~ [Thael06]
 @10   = ~Velvevlos va se gorger de ton sang !~ [Thael07]
@@ -39,11 +39,11 @@
 @36   = ~Mmm, trop facile.~ [Thael33]
 @37   = ~Maintenant, ils ne peuvent plus nous voir.~ [Thael34]
 @38   = ~Liste de pièges.~ [Thael35]
-@39   = ~Thael est un elfe de lune avec un aspect qui n'a rien de courant. Ses cheveux sont longs et argentés, sa peau a une texture métallique de couleur dorée et ses yeux dégagent une lumière ténue de couleur verte.
-Son caractère introverti et sérieux laisse peu d'occasions de l'interroger sur son passé, mais quand vous vous y risquez, son visage devient d'une pâleur mortelle et ses yeux brillent d'une telle intensité qu'il semble que son regard pourrait vous traverser. Sans doute porte-t-il un lourd passé...
-Quand il vous répond en murmurant, il détourne habillement la réponse, et au final vous savez seulement qu'avant de commencer à voyager c'était un mage d'une petite communauté d'elfes au Sud du Bosquet des Druides où il vivait avec sa famille. Il semble qu'il a acquis son habileté dans l'art de voler à posteriori, durant ses aventures au large de la Côte des Epées.~
-@40   = ~Après s'être finalement vengé de Sendai et avoir aidé <CHARNAME> à accomplir son destin, Thael, ne trouvant plus de raisons pour vivre, se retira dans les ruines de Lorenthelian, où reposaient sa femme et sa fille. Mais Velvevlos était un vil artefact avec une soif de sang infinie, et n'était pas disposée à être oubliée dans les ruines d'un village détruit. Il arriva que Thael, traversant vers le nord le Bosquet de Téthyr, fût pris dans une embuscade tendue par des guerriers drows venus d'Ombreterre. 
-Thael n'eut aucune chance... La "Lame Sanglante" connaissant le destin qui l'attendait, profita de l'opportunité pour révéler sa position aux drows, trahissant son porteur et  pouvant être utilisée pour un nouveau forfait. Heureusement, Thael réussit à s'en sortir vivant, mais avec les blessures qu'il avait reçues durant le combat, et sans Velvelos pour le protéger et le soigner, il finit par s'évanouir, s’abandonnant complètement à une mort implacable après avoir erré moribond durant des heures dans le bois.  
+@39   = ~Thael est un elfe de lune avec un aspect inhabituel. Ses cheveux sont longs et argentés, sa peau semble être faites d'une texture métallique de couleur dorée et ses yeux dégagent une lumière ténue de couleur verte.
+Son caractère introverti et sérieux laisse peu d'occasions de l'interroger sur son passé, mais quand vous vous y risquez, son visage devient d'une pâleur mortelle et ses yeux brillent d'une telle intensité que son regard semble vous traverser. Sans doute porte-t-il un lourd passé...
+Quand il vous répond en murmurant, il détourne habillement la réponse, et au final vous savez seulement qu'avant de commencer à voyager c'était un mage d'une petite communauté d'elfes au Sud du Bosquet des Druides où il vivait avec sa famille. Il semble qu'il a acquis ses capacités de voleur à posteriori, durant ses aventures au large de la Côte des Epées.~
+@40   = ~Après s'être finalement vengé de Sendai et avoir aidé <CHARNAME> à accomplir son destin, Thael, ne trouvant plus de raisons de vivre, se retira dans les ruines de Lorenthelian, où reposaient sa femme et sa fille. Mais Velvevlos était un vil artefact avec une soif de sang infinie, et n'était pas disposée à être oubliée dans les ruines d'un village détruit.  Alors que Thael se dirigeait vers le nord à travers la forêt de Tethyr, il fut pris en embuscade par un groupe de guerriers elfes noir venus d'Ombreterre. 
+Thael n'eut aucune chance... La "Lame Sanglante" connaissant le destin qui l'attendait, profita de l'opportunité pour révéler sa position aux drows, trahissant son porteur et afin d'être utilisée pour commettre de nouvelles atrocités. Heureusement, Thael réussit à s'en sortir vivant, mais avec les blessures qu'il avait reçues durant le combat, et sans Velvelos pour le protéger et le soigner, il finit par s'évanouir, s’abandonnant complètement à une mort implacable après avoir erré moribond dans le bois des heures durant.  
 Huit jours plus tard, Thael se réveilla dans la maison de guérison de Suldanessalar. Durant presqu'un mois, il se remit de ses graves blessures grâce aux soins attentifs d'une jolie elfe aux grands yeux bleus et à l'épaisse chevelure rousse du nom de Lisilde, une fidèle de Corellon. Les attentions prodiguées par cette puissante soigneuse ne soignèrent pas seulement les blessures physiques de Thael, mais soignèrent aussi son âme grâce aux enseignements religieux de la sacerdoce. Thael ne pensa plus jamais à quitter la vie, il s'installa à Suldanessalar et dix ans plus tard, il épousa Lisilde, avec laquelle il avait fini par trouver l'amour.~
 @41   = ~Pouvoir mutant~
 @42   = ~Pouvoir mutant de Thael
@@ -53,47 +53,47 @@ Temps d'incantation : 6
 Zone d'effet : Thael
 Jet de sauvegarde : Aucun
 
-Les mutations dont Thael a souffert l'affaiblissent sur bien des points, mais seulement deux fois par jour, Thael peut employer la sombre transformation : sa force s'accroit jusqu'à atteindre des proportions héroïques, le transformant en une formidable machine de combat.
+Les mutations dont Thael a souffert l'affaiblissent sur bien des points, en contrepartie, mais seulement deux fois par jour, Thael peut employer la sombre transformation : sa force s'accroit jusqu'à atteindre des proportions héroïques, le transformant en une formidable machine de combat.
 Ses points de dégâts sont doublés, et chaque point de dommages qu'on lui inflige sont comptabilisés à part jusqu'à ce qu'on lui en inflige neuf en tout. De plus, son armure naturelle améliore de 4 points la classe d'armure qu'il avait avant d'invoquer son pouvoir mutant (juqu'à un maximum de -10 à la classe d'armure).
-Il effectuera toutes ses attaques comme s'il était un guerrier en gardant son niveau de mage. Il aura donc la possibilité de se servir de sorts. De plus, il aura un bonus de +2 à ses attaques, et chaque coup critique infligera deux points de dégâts supplémentaires. L'effet dûre jusqu'à ce qu'il expire ou soit annihilé.~
+Il effectuera toutes ses attaques comme s'il était un guerrier en gardant ses capacités de mage. Il aura donc la possibilité de se servir de sorts. De plus, il aura un bonus de +2 à ses attaques, et chaque coup critique infligera deux points de dégâts supplémentaires. L'effet dûre jusqu'à ce qu'il expire ou soit dissipé.~
 @43   = ~Epée courte~
 @44   = ~Velvevlos~
 @45   = ~L'épée courte est le premier type d'épée à être apparu. Grossièrement, on peut comparer une épée courte à une dague dont la lame serait si longue qu'on ne pourrait plus l'appeler dague. Le terme épée courte n'entre pas dans les catégories d'épées. Pourtant, il est utilisé pour décrire une lame à double tranchant longue d'environ 60 cm. L'estoc de l'épée est généralement pointu, et on la range donc parmi les armes perforantes.~
-@46   = ~Velvevlos, connue sous le nom de Lame Sanglante, est une épée courte d'une facture assez étrange, même si c'est une arme d'origine drow. D'une part par sa garde qui se love si étroitement dans la main de Thael qu'on ne sait plus où commence l'une et où finit l'autre. D'autre part par sa lame, d'un aspect grossier et forgée dans un métal léger mais solide sur lequel apparaissent des runes magiques impossibles à déchiffrer, d'où, semble-t-il, l'épée puise son pouvoir faisant véhiculer par la même occasion ses capacités.
-Etant donné la nervosité de Thael quand vous manifestez de l'intêret quant à son épée, vous préfèrez reporter vos questions à un autre moment, même si le fait qu'il émane de son épée une aura maléfique n'est pas fait pour vous rassurer.
-Velvevlos semble avoir établi un lien télépathique avec Thael, lequel semble être le seul capable de s'en servir correctement.
+@46   = ~Velvevlos, connue sous le nom de la Lame Sanglante, est une épée courte d'une facture assez étrange, même pour de l'artisanat elfe noir. D'une part par sa garde qui se love si étroitement dans la main de Thael qu'on ne sait plus où commence l'une et où finit l'autre. D'autre part par sa lame, d'un aspect grossier et forgée dans un métal léger mais solide sur lequel apparaissent des runes magiques impossibles à déchiffrer, d'où, semble-t-il, l'épée puise son pouvoir et véhicule par la même occasion ses capacités.
+Etant donné la nervosité de Thael quand vous manifestez de l'intêret quant à son épée, vous préfèrez reporter vos questions à plus tard, même si l'aura maléfique qui émane de son épée n'est pas faite pour vous rassurer.
+Velvevlos parait avoir établi un lien télépathique avec Thael, qui semble être le seul capable de s'en servir correctement.
 
 PARAMETRES :
 
 Capacités spéciales : inconnues, même s'il semble que toutes visent à protéger le porteur.
-Capacités de combat : inconnues, mais les légendes racontent qu'à chaque victime de sa lame, elle devient plus puissante.
+Capacités de combat : inconnues, mais les légendes racontent qu'à chaque victime de sa lame, celle si devient plus puissante.
 Niveau de pouvoir : moyen
 
 Type de compétence : épée courte
 Utilisable uniquement par :
  Thael~
-@47   = ~Velvevlos, connue sous le nom de Lame Sanglante, est une épée courte d'une facture assez étrange, même si c'est une arme d'origine drow. D'une part par sa garde qui se love si étroitement dans la main de Thael qu'on ne sait plus où commence l'une et où finit l'autre. D'autre part par sa lame, d'un aspect grossier et forgée dans un métal léger mais solide sur lequel apparaissent des runes magiques impossibles à déchiffrer, d'où, semble-t-il, l'épée puise son pouvoir faisant véhiculer par la même occasion ses capacités.
-Etant donné la nervosité de Thael quand vous manifestez de l'intêret quant à son épée, vous préfèrez reporter vos questions à un autre moment, même si le fait qu'il émane de son épée une aura maléfique n'est pas fait pour vous rassurer.
-Velvevlos semble avoir établi un lien télépathique avec Thael, lequel semble être le seul capable de s'en servir correctement.
+@47   = ~Velvevlos, connue sous le nom de la Lame Sanglante, est une épée courte d'une facture assez étrange, même pour de l'artisanat elfe noir. D'une part par sa garde qui se love si étroitement dans la main de Thael qu'on ne sait plus où commence l'une et où finit l'autre. D'autre part par sa lame, d'un aspect grossier et forgée dans un métal léger mais solide sur lequel apparaissent des runes magiques impossibles à déchiffrer, d'où, semble-t-il, l'épée puise son pouvoir et véhicule par la même occasion ses capacités.
+Etant donné la nervosité de Thael quand vous manifestez de l'intêret quant à son épée, vous préfèrez reporter vos questions à plus tard, même si l'aura maléfique qui émane de son épée n'est pas faite pour vous rassurer.
+Velvevlos parait avoir établi un lien télépathique avec Thael, qui semble être le seul capable de s'en servir correctement.
 
 PARAMETRES :
 
 Capacités spéciales : inconnues, même s'il semble que toutes visent à protéger le porteur.
-Capacités de combat : inconnues, mais les légendes racontent qu'à chaque victime de sa lame, elle devient plus puissante.
+Capacités de combat : inconnues, mais les légendes racontent qu'à chaque victime de sa lame, celle si devient plus puissante.
 Niveau de pouvoir : haut
 
 Type de compétence : épée courte
 Utilisable uniquement par :
  Thael~
 
-@48   = ~Velvevlos, connue sous le nom de Lame Sanglante, est une épée courte d'une facture assez étrange, même si c'est une arme d'origine drow. D'une part par sa garde qui se love si étroitement dans la main de Thael qu'on ne sait plus où commence l'une et où finit l'autre. D'autre part par sa lame, d'un aspect grossier et forgée dans un métal léger mais solide sur lequel apparaissent des runes magiques impossibles à déchiffrer, d'où, semble-t-il, l'épée puise son pouvoir faisant véhiculer par la même occasion ses capacités.
-Etant donné la nervosité de Thael quand vous manifestez de l'intêret quant à son épée, vous préfèrez reporter vos questions à un autre moment, même si le fait qu'il émane de son épée une aura maléfique n'est pas fait pour vous rassurer.
-Velvevlos semble avoir établi un lien télépathique avec Thael, lequel semble être le seul capable de s'en servir correctement.
+@48   = ~Velvevlos, connue sous le nom de la Lame Sanglante, est une épée courte d'une facture assez étrange, même pour de l'artisanat elfe noir. D'une part par sa garde qui se love si étroitement dans la main de Thael qu'on ne sait plus où commence l'une et où finit l'autre. D'autre part par sa lame, d'un aspect grossier et forgée dans un métal léger mais solide sur lequel apparaissent des runes magiques impossibles à déchiffrer, d'où, semble-t-il, l'épée puise son pouvoir et véhicule par la même occasion ses capacités.
+Etant donné la nervosité de Thael quand vous manifestez de l'intêret quant à son épée, vous préfèrez reporter vos questions à plus tard, même si l'aura maléfique qui émane de son épée n'est pas faite pour vous rassurer.
+Velvevlos parait avoir établi un lien télépathique avec Thael, qui semble être le seul capable de s'en servir correctement.
 
 PARAMETRES :
 
 Capacités spéciales : inconnues, même s'il semble que toutes visent à protéger le porteur.
-Capacités de combat : inconnues, mais les légendes racontent qu'à chaque victime de sa lame, elle devient plus puissante.
+Capacités de combat : inconnues, mais les légendes racontent qu'à chaque victime de sa lame, celle si devient plus puissante.
 Niveau de pouvoir : hors du commun
 
 Type de compétence : épée courte
@@ -101,7 +101,7 @@ Utilisable uniquement par :
  Thael~
 
 @49   = ~Sindel~
-@50   = ~Regarde ce que nous avons là !~ [Sindel01]
+@50   = ~Regardez ce que nous avons là !~ [Sindel01]
 @51   = ~Tâte le fil de mon épée !~ [Sindel02]
 @52   = ~C'est la volonté de notre Père.~ [Sindel03]
 @53   = ~Tâte le fil de mon épée !~ [Sindel02]
